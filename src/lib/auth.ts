@@ -28,13 +28,14 @@ export const logout = () => {
     window.location.href = '/'; // Redirect to home
 };
 
-export const loginUser = async (identifier, password) => {
+export const loginUser = async (identifier: string, password: string) => {
     try {
         const res = await fetch(`${STRAPI_URL}/api/auth/local`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
+            cache: 'no-store',
             body: JSON.stringify({
                 identifier,
                 password,
@@ -50,13 +51,14 @@ export const loginUser = async (identifier, password) => {
     }
 };
 
-export const registerUser = async (username, email, password) => {
+export const registerUser = async (username: string, email: string, password: string) => {
     try {
         const res = await fetch(`${STRAPI_URL}/api/auth/local/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
+            cache: 'no-store',
             body: JSON.stringify({
                 username,
                 email,
