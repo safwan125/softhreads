@@ -40,6 +40,7 @@ export async function fetchAPI(path: string, urlParamsObject = {}, options = {})
         headers: {
             "Content-Type": "application/json",
         },
+        cache: 'no-store' as const,
         ...options,
     };
 
