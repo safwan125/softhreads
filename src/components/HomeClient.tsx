@@ -134,22 +134,6 @@ export function HomeClient({ featuredProducts, saleProducts }: HomeClientProps) 
                         <ArrowRight className="w-4 h-4" />
                     </Link>
                 </section>
-
-                {/* Categories Grid */}
-                <section className="mb-16">
-                    <h2 className="text-3xl mb-8 text-center">Shop by Category</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {['T-Shirts', 'Hoodies', 'Jeans', 'Outerwear'].map((category) => (
-                            <Link
-                                key={category}
-                                href="/shop"
-                                className="bg-card border border-border rounded-lg p-8 text-center hover:shadow-lg transition-shadow group"
-                            >
-                                <h3 className="group-hover:text-primary transition-colors">{category}</h3>
-                            </Link>
-                        ))}
-                    </div>
-                </section>
             </div>
         </div>
     );
