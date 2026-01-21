@@ -37,7 +37,7 @@ export default function Checkout() {
     const [phone, setPhone] = useState('');
     const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
-    // Cart Data with Strapi Details
+    // Cart Data (Fetched details)
     const [cartProducts, setCartProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 

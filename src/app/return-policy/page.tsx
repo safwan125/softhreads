@@ -1,69 +1,45 @@
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-
-export const dynamic = 'force-dynamic';
-
-export default function ReturnPolicy() {
+export default function ReturnPolicyPage() {
     return (
         <div className="container mx-auto px-4 py-16 max-w-4xl">
-            <h1 className="text-4xl font-bold mb-8 text-center">Return & Refund Policy</h1>
+            <h1 className="text-4xl mb-12 text-center">Return & Refund Policy</h1>
 
-            <div className="space-y-8 text-muted-foreground">
+            <div className="prose prose-lg dark:prose-invert mx-auto space-y-8">
                 <section>
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">Our Guarantee</h2>
-                    <p>
-                        We want you to love your Softhreads purchase. If you are not completely satisfied,
-                        we are here to help.
+                    <h2 className="text-2xl font-semibold mb-4">Our Guarantee</h2>
+                    <p className="text-muted-foreground">
+                        At Softhreads, we want you to be completely satisfied with your purchase. If you're not happy with your order for any reason, we offer a hassle-free 30-day return policy.
                     </p>
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">Returns</h2>
-                    <p className="mb-4">
-                        You have <strong>30 calendar days</strong> to return an item from the date you received it.
-                    </p>
-                    <ul className="list-disc pl-6 space-y-2">
-                        <li>To be eligible for a return, your item must be unused and in the same condition that you received it.</li>
-                        <li>Your item must be in the original packaging.</li>
-                        <li>Your item needs to have the receipt or proof of purchase.</li>
+                    <h2 className="text-2xl font-semibold mb-4">Eligibility for Returns</h2>
+                    <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+                        <li>Items must be unused, unwashed, and in original condition.</li>
+                        <li>All original tags and packaging must be intact.</li>
+                        <li>Returns must be initiated within 30 days of delivery.</li>
+                        <li>Clearance items are final sale and cannot be returned.</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">Refunds</h2>
-                    <p>
-                        Once we receive your item, we will inspect it and notify you that we have received your
-                        returned item. We will immediately notify you on the status of your refund after inspecting the item.
+                    <h2 className="text-2xl font-semibold mb-4">How to Initiate a Return</h2>
+                    <p className="text-muted-foreground mb-4">
+                        To start a return, please visit our <a href="/contact" className="text-primary hover:underline">Contact Page</a> or email support@softhreads.com with your Order ID.
                     </p>
-                    <p className="mt-2">
-                        If your return is approved, we will initiate a refund to your credit card (or original method of payment).
-                        You will receive the credit within a certain amount of days, depending on your card issuer's policies.
-                    </p>
+                    <ol className="list-decimal pl-6 space-y-2 text-muted-foreground">
+                        <li>Prepare your package with the original invoice.</li>
+                        <li>We will schedule a pickup within 24-48 hours.</li>
+                        <li>Once received, we inspect the item(s).</li>
+                        <li>Refunds are processed within 5-7 business days to your original payment method.</li>
+                    </ol>
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">Shipping</h2>
-                    <p>
-                        You will be responsible for paying for your own shipping costs for returning your item.
-                        Shipping costs are non-refundable. If you receive a refund, the cost of return shipping
-                        will be deducted from your refund.
+                    <h2 className="text-2xl font-semibold mb-4">Exchanges</h2>
+                    <p className="text-muted-foreground">
+                        Need a different size? The fastest way to ensure you get what you want is to return the item you have, and once the return is accepted, make a separate purchase for the new item.
                     </p>
                 </section>
-
-                <section>
-                    <h2 className="text-2xl font-semibold text-foreground mb-4">Contact Us</h2>
-                    <p>
-                        If you have any questions on how to return your item to us, contact us at:
-                        <br />
-                        <span className="text-foreground">support@softhreads.com</span>
-                    </p>
-                </section>
-
-                <div className="pt-8">
-                    <Link href="/">
-                        <Button variant="outline">Back to Home</Button>
-                    </Link>
-                </div>
             </div>
         </div>
     );
