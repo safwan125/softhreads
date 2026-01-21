@@ -86,7 +86,7 @@ export const registerUser = async (username: string, email: string, password: st
         // Auto-login or return user? 
         // WPGraphQL Register doesn't return token by default unless configured or usually we login sequentially.
         // For now, let's return user and the UI might redirect to login, or we sequence it.
-        // But for parity with Strapi function (which returned {jwt, user}), we might fail to get JWT here immediately without a second call.
+        // We might fail to get JWT here immediately without a second call.
         // Let's perform a subsequent login
         return await loginUser(username, password);
     } catch (error: any) {

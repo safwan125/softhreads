@@ -17,7 +17,7 @@ interface ProductDetailClientProps {
 
 export function ProductDetailClient({ product }: ProductDetailClientProps) {
     const { addToCart } = useCart();
-    // Use dummy reviews filtering by ID (Note: Strapi IDs are likely different from dummy IDs (1 vs documentId))
+    // Use dummy reviews filtering by ID
     // We can show all reviews or random ones for demo if IDs mismatch.
     // For now, try to match if possible, else show some.
     const productReviews = dummyReviews.filter(r => r.productId === product.id) || dummyReviews.slice(0, 3);

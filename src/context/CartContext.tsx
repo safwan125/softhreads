@@ -187,8 +187,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 console.log('[Cart] Syncing to server...', product.databaseId);
                 const res = await addCartItem(product.databaseId, quantity, undefined, token);
                 console.log('[Cart] Server Sync Success:', res);
-            } catch (e) {
+            } catch (e: any) {
                 console.error("[Cart] Server sync failed:", e);
+                // toast.error("Failed to save to account. Cart is local only.");
+                // We don't want to scare the user, but for debugging this is critical.
+                // improved logging:
+                console.warn("Server Error Details:", JSON.stringify(e, null, 2));
             }
         } else {
             console.log('[Cart] Skipping server sync. Token:', !!token, 'DB ID:', product.databaseId);

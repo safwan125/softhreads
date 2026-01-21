@@ -5,6 +5,9 @@ import { HomeClient } from '@/components/HomeClient';
 
 import { NewsletterPopup } from '@/components/NewsletterPopup';
 
+export const revalidate = 0; // Dynamic fetching
+
+
 export default async function Home() {
   // Fetch Featured Products from WooCommerce
   // If no products are explicitly marked "featured", we fallback to just the latest products so the carousel isn't empty.

@@ -232,7 +232,7 @@ function transformWooProduct(node: any): Product {
     name: node.name,
     price,
     salePrice,
-    category: node.productCategories?.nodes?.[0]?.name || 'Uncategorized',
+    category: node.productCategories?.nodes?.find((c: any) => c.name !== 'Uncategorized')?.name || 'General',
     description: node.shortDescription?.replace(/<[^>]*>?/gm, '') || '', // Strip HTML
     longDescription: node.description?.replace(/<[^>]*>?/gm, '') || '', // Strip HTML
     image: node.image?.sourceUrl || '/placeholder.png', // Ensure this asset exists or use a valid URL
