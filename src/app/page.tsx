@@ -1,34 +1,32 @@
-import { fetchAPI, transformProduct } from '@/lib/strapi';
+import { fetchWooCommerceProducts } from '@/lib/wordpress';
 import { HomeClient } from '@/components/HomeClient';
-import { products as dummyProducts } from '@/data/products';
 
-export const dynamic = 'force-dynamic'; // Ensures data is fresh
+
 
 import { NewsletterPopup } from '@/components/NewsletterPopup';
 
 export default async function Home() {
-  // Fetch Featured Products
-  const featuredRes = await fetchAPI("/products", {
-    filters: { isFeatured: { $eq: true } },
-    populate: "*"
-  });
+  // Fetch Featured Products from WooCommerce
+  // If no products are explicitly marked "featured", we fallback to just the latest products so the carousel isn't empty.
+  let featuredProducts = await fetchWooCommerceProducts(undefined, true, 4);
+  const allProducts = await fetchWooCommerceProducts(undefined, undefined, 8);
 
-  // Fetch Sale Products (products with salePrice not null)
-  const saleRes = await fetchAPI("/products", {
-    filters: { salePrice: { $notNull: true } },
-    populate: "*"
-  });
+  if (featuredProducts.length === 0 && allProducts.length > 0) {
+    featuredProducts = allProducts.slice(0, 4);
+  }
 
-  const featuredProducts = featuredRes?.data?.map(transformProduct) || [];
-  const saleProducts = saleRes?.data?.map(transformProduct) || [];
-
-  // Fallback to dummy data if Strapi returns nothing (e.g. during initial setup)
-  const finalFeatured = featuredProducts.length > 0 ? featuredProducts : dummyProducts.filter(p => p.featured);
-  const finalSale = saleProducts.length > 0 ? saleProducts : dummyProducts.filter(p => p.salePrice);
+  // Fetch Generic Products for "Sale" section (simulated by filtering or just showing latest)
+  // Real WooGraphQL would allow specific query for onSale: true
+  // For now, if no products are on sale, we show random products to keep the section alive or hide it if strictly needed.
+  // The user wants "visuals restore", which implies showing *something*.
+  const saleProducts = allProducts.filter(p => p.salePrice !== undefined && p.salePrice < p.price);
 
   return (
     <>
-      <HomeClient featuredProducts={finalFeatured} saleProducts={finalSale} />
+      <HomeClient
+        featuredProducts={featuredProducts}
+        saleProducts={saleProducts.length > 0 ? saleProducts : allProducts.slice(0, 4)} // Fallback for sale section too
+      />
       <NewsletterPopup />
     </>
   );

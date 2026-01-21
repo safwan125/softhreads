@@ -60,7 +60,7 @@ export function Header() {
               </Link>
               <Link href="/cart" className="relative text-foreground hover:text-primary transition-colors">
                 <ShoppingCart className="w-5 h-5" />
-                {cartCount > 0 && (
+                {isLoggedIn && cartCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs w-5 h-5 rounded-full flex items-center justify-center">
                     {cartCount}
                   </span>

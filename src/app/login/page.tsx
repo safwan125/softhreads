@@ -142,33 +142,7 @@ export default function Login() {
                         </CardContent>
 
                         <CardFooter className="flex flex-col gap-5 border-t bg-muted/20 px-8 pb-8 pt-6">
-                            <div className="relative w-full">
-                                <div className="absolute inset-0 flex items-center">
-                                    <span className="w-full border-t" />
-                                </div>
-                                <div className="relative flex justify-center text-xs uppercase">
-                                    <span className="bg-background px-2 text-muted-foreground">
-                                        Or continue with
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-4 w-full">
-                                <Button
-                                    variant="outline"
-                                    className="h-11 rounded-xl hover:bg-muted transition"
-                                >
-                                    Google
-                                </Button>
-                                <Button
-                                    variant="outline"
-                                    className="h-11 rounded-xl hover:bg-muted transition"
-                                >
-                                    GitHub
-                                </Button>
-                            </div>
-
-                            <p className="text-center text-sm text-muted-foreground">
+                            <p className="text-center text-sm text-muted-foreground w-full">
                                 Don&apos;t have an account?{' '}
                                 <Link
                                     href="/signup"

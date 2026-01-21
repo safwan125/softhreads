@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Product } from '@/lib/strapi';
+import { Product } from '@/lib/wordpress';
 import { reviews as dummyReviews, Review } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import { Star, Check, ShoppingCart, ChevronLeft } from 'lucide-react';
 import { toast } from 'sonner';
 import { useCart } from '@/context/CartContext';
+import { SizeGuideModal } from '@/components/SizeGuideModal';
 
 interface ProductDetailClientProps {
     product: Product;
@@ -34,14 +35,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             toast.error('Please select a size');
             return;
         }
-        for (let i = 0; i < quantity; i++) {
-            addToCart({
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                image: product.image,
-            }, selectedColor, selectedSize);
-        }
+        addToCart({
+            id: product.id,
+            databaseId: product.databaseId,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+        }, selectedColor, selectedSize, quantity);
         toast.success('Added to cart!');
     };
 
@@ -136,10 +136,17 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                         </div>
                     )}
 
+
+
+                    // ... (existing code)
+
                     {/* Size Selection */}
                     {product.sizes && product.sizes.length > 0 && (
                         <div className="mb-6">
-                            <p className="mb-3">Size: {selectedSize && <span className="text-muted-foreground">{selectedSize}</span>}</p>
+                            <div className="flex items-center justify-between mb-3">
+                                <p>Size: {selectedSize && <span className="text-muted-foreground">{selectedSize}</span>}</p>
+                                <SizeGuideModal />
+                            </div>
                             <div className="flex flex-wrap gap-2">
                                 {product.sizes.map((size) => (
                                     <button
@@ -180,9 +187,20 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     </div>
 
                     {/* Add to Cart */}
-                    <Button onClick={handleAddToCart} className="w-full mb-4" size="lg">
-                        <ShoppingCart className="w-5 h-5 mr-2" />
-                        Add to Cart
+                    <Button
+                        onClick={handleAddToCart}
+                        className="w-full mb-4"
+                        size="lg"
+                        disabled={!product.inStock}
+                    >
+                        {product.inStock ? (
+                            <>
+                                <ShoppingCart className="w-5 h-5 mr-2" />
+                                Add to Cart
+                            </>
+                        ) : (
+                            'Out of Stock'
+                        )}
                     </Button>
 
                     {/* Product Features */}

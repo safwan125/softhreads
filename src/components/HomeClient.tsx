@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Product } from '@/lib/strapi';
+import { Product } from '@/lib/wordpress';
 import { ProductCard } from '../components/ProductCard';
 import { ArrowRight } from 'lucide-react';
 import {

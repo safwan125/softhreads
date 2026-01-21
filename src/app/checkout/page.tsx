@@ -9,10 +9,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Lock } from 'lucide-react';
-import { products as dummyProducts } from '@/data/products';
 import { toast } from 'sonner';
 import { useCart } from '@/context/CartContext';
-import { fetchAPI, transformProduct, Product, STRAPI_URL } from '@/lib/strapi';
+import { fetchWooProduct, Product } from '@/lib/wordpress';
+
 
 declare global {
     interface Window {
@@ -45,27 +45,17 @@ export default function Checkout() {
         const loadProducts = async () => {
             if (cartItems.length === 0) return;
 
-            const uniqueIds = Array.from(new Set(cartItems.map(item => item.productId)));
+            const uniqueIds = Array.from(new Set(cartItems.map(item => item.productId))); // IDs are now slugs
             const fetchedProducts: Product[] = [];
 
             for (const id of uniqueIds) {
-                // Try fetching from Strapi
-                let product: Product | null = null;
+                // Fetch from WordPress
                 try {
-                    const res = await fetchAPI(`/products/${id}`, { populate: "*" });
-                    if (res?.data) {
-                        product = transformProduct(res.data);
+                    const product = await fetchWooProduct(id);
+                    if (product) {
+                        fetchedProducts.push(product);
                     }
                 } catch (e) { console.error(e); }
-
-                // Fallback to dummy
-                if (!product) {
-                    product = dummyProducts.find(p => p.id === id) as Product || null;
-                }
-
-                if (product) {
-                    fetchedProducts.push(product);
-                }
             }
             setCartProducts(fetchedProducts);
             setLoading(false);
@@ -95,44 +85,48 @@ export default function Checkout() {
         setIsProcessingPayment(true);
 
         try {
-            // 1. Create Order in Razorpay via Backend
-            const orderRes = await fetchAPI('/orders/pretransaction', {}, {
+            // 1. Create Order in Razorpay via Next.js API
+            const orderRes = await fetch('/api/razorpay/order', {
                 method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ amount: total }),
             });
+            const orderData = await orderRes.json();
 
-            if (!orderRes || !orderRes.orderId) {
-                throw new Error('Failed to create order');
+            if (!orderRes.ok || !orderData.id) {
+                throw new Error(orderData.error || 'Failed to create order');
             }
 
             const options = {
-                key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '', // Make sure this is set!
-                amount: orderRes.amount,
+                key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '',
+                amount: orderData.amount,
                 currency: "INR",
                 name: "Softhreads",
                 description: "Purchase from Softhreads",
-                order_id: orderRes.orderId,
+                order_id: orderData.id,
                 handler: async function (response: any) {
                     // 2. Verify Payment in Backend
-                    const verifyRes = await fetchAPI('/orders/posttransaction', {}, {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            razorpay_payment_id: response.razorpay_payment_id,
-                            razorpay_order_id: response.razorpay_order_id,
-                            razorpay_signature: response.razorpay_signature,
-                            items: cartItems,
-                            amount: total,
-                            customerDetails: {
-                                email, firstName, lastName, address, city, state, zipCode, phone
-                            }
-                        }),
-                    });
+                    try {
+                        const verifyRes = await fetch('/api/razorpay/verify', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                razorpay_payment_id: response.razorpay_payment_id,
+                                razorpay_order_id: response.razorpay_order_id,
+                                razorpay_signature: response.razorpay_signature,
+                            }),
+                        });
+                        const verifyData = await verifyRes.json();
 
-                    if (verifyRes && verifyRes.success) {
-                        toast.success('Payment successful! Order placed.');
-                        clearCart();
-                        router.push('/order-success');
-                    } else {
+                        if (verifyData.success) {
+                            toast.success('Payment successful! Order placed.');
+                            clearCart();
+                            router.push('/order-success');
+                        } else {
+                            toast.error('Payment verification failed.');
+                        }
+                    } catch (verifyError) {
+                        console.error("Verification error", verifyError);
                         toast.error('Payment verification failed.');
                     }
                     setIsProcessingPayment(false);

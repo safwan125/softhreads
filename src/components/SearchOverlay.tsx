@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 import { X, Search, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { fetchAPI, transformProduct, Product } from '@/lib/strapi';
-import qs from 'qs';
+import { fetchWooCommerceProducts, Product } from '@/lib/wordpress';
+// ... import qs removed as likely unused? check later.
 
 interface SearchOverlayProps {
     isOpen: boolean;
@@ -44,19 +44,8 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
 
             setLoading(true);
             try {
-                // Search by name containing the query (case-insensitive usually handled by 'contains')
-                // Using 'qs' implicitly via fetchAPI if updated, or constructing manual object
-                // We rely on fetchAPI's new capability or pass object
-                const data = await fetchAPI('/products', {
-                    filters: {
-                        name: {
-                            $contains: query, // Case sensitivity depends on DB (Postgres is case sensitive usually, need $containsi if available in Strapi v5)
-                        },
-                    },
-                    populate: '*',
-                });
-
-                const products = data?.data?.map(transformProduct) || [];
+                // Search using WordPress
+                const products = await fetchWooCommerceProducts(undefined, undefined, 20, query);
                 setResults(products);
             } catch (error) {
                 console.error("Search error:", error);

@@ -1,3 +1,4 @@
+
 export interface Product {
   id: string;
   name: string;
@@ -11,15 +12,6 @@ export interface Product {
   sizes: string[];
   inStock: boolean;
   featured?: boolean;
-}
-
-export interface Review {
-  id: string;
-  productId: string;
-  author: string;
-  rating: number;
-  date: string;
-  comment: string;
 }
 
 export const products: Product[] = [
@@ -124,6 +116,7 @@ export const products: Product[] = [
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     inStock: true,
+    featured: false,
   },
   {
     id: '7',
@@ -140,6 +133,7 @@ export const products: Product[] = [
     ],
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     inStock: true,
+    featured: false,
   },
   {
     id: '8',
@@ -174,6 +168,7 @@ export const products: Product[] = [
     ],
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     inStock: true,
+    featured: false,
   },
   {
     id: '10',
@@ -190,8 +185,18 @@ export const products: Product[] = [
     ],
     sizes: ['S', 'M', 'L', 'XL'],
     inStock: true,
+    featured: false,
   },
 ];
+
+export interface Review {
+  id: string;
+  productId: string;
+  author: string;
+  rating: number;
+  date: string;
+  comment: string;
+}
 
 export const reviews: Review[] = [
   {

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Product } from '../data/products';
+import { Product } from '@/lib/wordpress';
 
 interface ProductCardProps {
   product: Product;
@@ -17,6 +17,7 @@ export function ProductCard({ product }: ProductCardProps) {
             width={400}
             height={533}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <div className="p-4">
