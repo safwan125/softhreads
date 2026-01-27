@@ -189,10 +189,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 console.log('[Cart] Server Sync Success:', res);
             } catch (e: any) {
                 console.error("[Cart] Server sync failed:", e);
-                // toast.error("Failed to save to account. Cart is local only.");
-                // We don't want to scare the user, but for debugging this is critical.
-                // improved logging:
-                console.warn("Server Error Details:", JSON.stringify(e, null, 2));
+                const errorStr = JSON.stringify(e);
+
+                // If the error implies a bad session or internal crash due to user state
+                if (errorStr.includes('Internal server error') || errorStr.includes('jwt_auth_invalid_token')) {
+                    console.warn('[Cart] Session seems corrupted (500/403). Logging out to restore functionality.');
+                    // Force Logout to clear bad state
+                    import('@/lib/auth').then(mod => {
+                        mod.logout();
+                        // Optionally: toast.error("Session expired. Please sign in again.");
+                    });
+                }
             }
         } else {
             console.log('[Cart] Skipping server sync. Token:', !!token, 'DB ID:', product.databaseId);

@@ -4,12 +4,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/lib/wordpress';
-import { reviews as dummyReviews, Review } from '@/data/products';
+import { reviews as dummyReviews, Review } from '@/data/reviews';
 import { Button } from '@/components/ui/button';
 import { Star, Check, ShoppingCart, ChevronLeft } from 'lucide-react';
 import { toast } from 'sonner';
 import { useCart } from '@/context/CartContext';
 import { SizeGuideModal } from '@/components/SizeGuideModal';
+import { SizeChartSection } from '@/components/SizeChartSection';
 
 interface ProductDetailClientProps {
     product: Product;
@@ -113,7 +114,10 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                         )}
                     </div>
 
-                    <p className="text-muted-foreground mb-8">{product.longDescription}</p>
+                    <div
+                        className="text-muted-foreground mb-8 prose dark:prose-invert"
+                        dangerouslySetInnerHTML={{ __html: product.longDescription }}
+                    />
 
                     {/* Color Selection */}
                     {product.colors && product.colors.length > 0 && (
@@ -138,7 +142,6 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
 
 
-                    // ... (existing code)
 
                     {/* Size Selection */}
                     {product.sizes && product.sizes.length > 0 && (
@@ -220,6 +223,9 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     </div>
                 </div>
             </div>
+
+            {/* Size Chart Section */}
+            <SizeChartSection />
 
             {/* Reviews Section */}
             {productReviews.length > 0 && (

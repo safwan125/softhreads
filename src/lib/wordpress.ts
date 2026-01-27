@@ -1,7 +1,8 @@
 import { GraphQLClient } from 'graphql-request';
-import { products as dummyProducts } from '@/data/products';
 
-export const WORDPRESS_API_URL = 'https://softhreads.com/graphql';
+
+
+export const WORDPRESS_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://softhreads.com/graphql';
 
 export const client = new GraphQLClient(WORDPRESS_API_URL, {
   cache: 'no-store', // Always fetch fresh data (Auth, Cart, Mutations)
@@ -92,32 +93,8 @@ export async function fetchWooCommerceProducts(category?: string, featured?: boo
     console.log('[WP] Products Found:', nodes.length);
 
     if (nodes.length === 0) {
-      console.warn('[WP] No products found in API. Falling back to Demo Data.');
-
-      // Filter dummy data
-      let filtered = dummyProducts;
-      if (category) {
-        const catLower = category.toLowerCase();
-        // Smart mapping for top-level categories
-        if (catLower === 'men') {
-          filtered = filtered.filter(p => p.category.toLowerCase() !== 'dresses');
-        } else if (catLower === 'women') {
-          // Show everything (or filter if we had specific male-only items, but 'T-Shirts', 'Hoodies' etc are unisex)
-          filtered = filtered;
-        } else {
-          // Strict match for subcategories like 'hoodies'
-          const strict = filtered.filter(p => p.category.toLowerCase() === catLower);
-          if (strict.length > 0) filtered = strict;
-        }
-      }
-      if (featured) filtered = filtered.filter(p => p.featured === true);
-      if (search) filtered = filtered.filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
-
-      // Map dummy data to 'Product' interface as needed (ensure strict compatibility with databaseId)
-      return filtered.map(p => ({
-        ...p,
-        databaseId: parseInt(p.id) || 0 // Mock DB ID
-      }));
+      console.warn('[WP] No products found in API.');
+      return [];
     }
 
     // Transform
@@ -126,9 +103,7 @@ export async function fetchWooCommerceProducts(category?: string, featured?: boo
 
   } catch (e) {
     console.error("WP Fetch Error:", e);
-    // Fallback on error too
-    console.warn('[WP] API Error. Falling back to Demo Data.');
-    return dummyProducts.map(p => ({ ...p, databaseId: parseInt(p.id) || 0 }));
+    return [];
   }
 }
 
@@ -181,22 +156,9 @@ export async function fetchWooProduct(slug: string): Promise<Product | null> {
     if (data?.product) {
       return transformWooProduct(data.product);
     }
-
-    // Fallback for single product
-    const fallback = dummyProducts.find(p => p.id === slug || p.name.toLowerCase().replace(/ /g, '-') === slug);
-    if (fallback) {
-      return { ...fallback, databaseId: parseInt(fallback.id) || 0 };
-    }
-
     return null;
   } catch (e) {
     console.error("WP Fetch Single Error:", e);
-
-    // Fallback on error
-    const fallback = dummyProducts.find(p => p.id === slug || p.name.toLowerCase().replace(/ /g, '-') === slug);
-    if (fallback) {
-      return { ...fallback, databaseId: parseInt(fallback.id) || 0 };
-    }
     return null;
   }
 }
@@ -234,7 +196,7 @@ function transformWooProduct(node: any): Product {
     salePrice,
     category: node.productCategories?.nodes?.find((c: any) => c.name !== 'Uncategorized')?.name || 'General',
     description: node.shortDescription?.replace(/<[^>]*>?/gm, '') || '', // Strip HTML
-    longDescription: node.description?.replace(/<[^>]*>?/gm, '') || '', // Strip HTML
+    longDescription: node.description || '', // Keep HTML for rich text rendering
     image: node.image?.sourceUrl || '/placeholder.png', // Ensure this asset exists or use a valid URL
     colors: colors.length > 0 ? colors : [{ name: 'Default', hex: '#000000' }],
     sizes: sizes.length > 0 ? sizes : ['One Size'],
