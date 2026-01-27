@@ -37,8 +37,6 @@ export async function fetchWooCommerceProducts(category?: string, featured?: boo
           databaseId
           slug
           name
-          shortDescription
-          description
           image {
             sourceUrl
           }
@@ -47,6 +45,14 @@ export async function fetchWooCommerceProducts(category?: string, featured?: boo
             regularPrice
             salePrice
             stockStatus
+            shortDescription
+            description
+            productCategories {
+                nodes {
+                  name
+                  slug
+                }
+              }
             attributes {
               nodes {
                 name
@@ -59,17 +65,19 @@ export async function fetchWooCommerceProducts(category?: string, featured?: boo
             regularPrice
             salePrice
             stockStatus
+            shortDescription
+            description
+            productCategories {
+                nodes {
+                  name
+                  slug
+                }
+              }
             attributes {
               nodes {
                 name
                 options
               }
-            }
-          }
-          productCategories {
-            nodes {
-              name
-              slug
             }
           }
         }
@@ -88,7 +96,7 @@ export async function fetchWooCommerceProducts(category?: string, featured?: boo
 
     console.log('[WP] Fetching Products Variables:', variables);
 
-    const data: any = await cachedClient.request(query, variables);
+    const data: any = await client.request(query, variables);
     const nodes = data?.products?.nodes || [];
     console.log('[WP] Products Found:', nodes.length);
 
@@ -114,16 +122,18 @@ export async function fetchWooProduct(slug: string): Promise<Product | null> {
           databaseId
           slug
           name
-          shortDescription
-          description
-          image {
-            sourceUrl
-          }
           ... on SimpleProduct {
             price
             regularPrice
             salePrice
             stockStatus
+            shortDescription
+            description
+            productCategories {
+               nodes {
+                   name
+               }
+           }
             attributes {
               nodes {
                 name
@@ -136,6 +146,13 @@ export async function fetchWooProduct(slug: string): Promise<Product | null> {
             regularPrice
             salePrice
             stockStatus
+            shortDescription
+            description
+            productCategories {
+               nodes {
+                   name
+               }
+           }
             attributes {
               nodes {
                 name
@@ -143,16 +160,11 @@ export async function fetchWooProduct(slug: string): Promise<Product | null> {
               }
             }
           }
-          productCategories {
-              nodes {
-                  name
-              }
-          }
       }
     }
   `;
   try {
-    const data: any = await cachedClient.request(query, { id: slug });
+    const data: any = await client.request(query, { id: slug });
     if (data?.product) {
       return transformWooProduct(data.product);
     }
