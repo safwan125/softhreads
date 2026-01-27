@@ -15,6 +15,7 @@ export interface CartItem {
     quantity: number;
     key?: string; // For Woo Cart
     databaseId?: number;
+    stockStatus?: string;
 }
 
 interface CartContextType {
@@ -25,6 +26,7 @@ interface CartContextType {
     clearCart: () => void;
     cartCount: number;
     refreshCart: () => Promise<void>;
+    removeOutOfStockItems: () => Promise<void>;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -76,7 +78,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
                             size,
                             quantity: node.quantity,
                             key: node.key, // Store the key for updates/removals!
-                            databaseId: productNode.databaseId
+                            databaseId: productNode.databaseId,
+                            stockStatus: productNode.stockStatus
                         };
                     });
                     setCartItems(serverItems);
@@ -244,6 +247,28 @@ export function CartProvider({ children }: { children: ReactNode }) {
         }
     };
 
+    const removeOutOfStockItems = async () => {
+        // Optimistic
+        setCartItems(prev => prev.filter(item => item.stockStatus !== 'OUT_OF_STOCK'));
+
+        // If we want to sync with server, we need to know WHICH items to remove.
+        // But since we just cleared the local state, we should find the items from the *current* state before clearing.
+        // Actually, I can filter from the active cartItems reference in closure? No, closures capture old state.
+        // I should calculate keys first.
+
+        const outOfStockItems = cartItems.filter(item => item.stockStatus === 'OUT_OF_STOCK');
+        const keysToRemove = outOfStockItems.map(item => item.key).filter((k): k is string => !!k);
+
+        const token = getToken();
+        if (token && keysToRemove.length > 0) {
+            try {
+                await removeCartItem(keysToRemove, token);
+            } catch (e) {
+                console.error("Server remove OOS failed", e);
+            }
+        }
+    };
+
     const clearCart = () => {
         setCartItems([]);
     };
@@ -260,6 +285,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 clearCart,
                 cartCount,
                 refreshCart: initializeCart,
+                removeOutOfStockItems,
             }}
         >
             {children}

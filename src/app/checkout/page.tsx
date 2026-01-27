@@ -22,7 +22,7 @@ declare global {
 
 export default function Checkout() {
     const router = useRouter();
-    const { cartItems, clearCart } = useCart();
+    const { cartItems, clearCart, removeOutOfStockItems } = useCart();
     const [step, setStep] = useState<'shipping' | 'payment'>('shipping');
 
     // Shipping form
@@ -343,9 +343,29 @@ export default function Checkout() {
                                     <Button type="button" variant="outline" onClick={() => setStep('shipping')} className="w-full mb-3">
                                         Back to Shipping
                                     </Button>
-                                    <Button onClick={handlePaymentSubmit} className="w-full" disabled={isProcessingPayment}>
-                                        {isProcessingPayment ? 'Processing...' : `Pay Now - ₹${total.toFixed(2)}`}
-                                    </Button>
+
+                                    {/* Out of Stock Validation */}
+                                    {cartItems.some(item => item.stockStatus === 'OUT_OF_STOCK') ? (
+                                        <div className="bg-destructive/10 text-destructive p-4 rounded-lg mb-4 text-sm">
+                                            <p className="font-semibold mb-2">Some items in your cart are out of stock.</p>
+                                            <ul className="list-disc pl-5 mb-3">
+                                                {cartItems.filter(i => i.stockStatus === 'OUT_OF_STOCK').map(i => (
+                                                    <li key={i.key || i.productId}>{i.name} (Out of Stock)</li>
+                                                ))}
+                                            </ul>
+                                            <Button
+                                                variant="destructive"
+                                                onClick={() => removeOutOfStockItems()}
+                                                className="w-full"
+                                            >
+                                                Remove Out of Stock Items
+                                            </Button>
+                                        </div>
+                                    ) : (
+                                        <Button onClick={handlePaymentSubmit} className="w-full" disabled={isProcessingPayment}>
+                                            {isProcessingPayment ? 'Processing...' : `Pay Now - ₹${total.toFixed(2)}`}
+                                        </Button>
+                                    )}
                                 </div>
 
                                 <p className="text-xs text-muted-foreground text-center mt-4">

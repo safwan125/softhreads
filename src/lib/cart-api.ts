@@ -13,6 +13,7 @@ export interface CartData {
                 slug: string;
                 image: { sourceUrl: string };
                 price: string; // Formatted price
+                stockStatus?: string;
             }
         };
         quantity: number;
@@ -53,9 +54,11 @@ export const getCart = async (token?: string): Promise<CartData | null> => {
                                 }
                                 ... on SimpleProduct {
                                     price
+                                    stockStatus
                                 }
                                 ... on VariableProduct {
                                     price
+                                    stockStatus
                                 }
                             }
                         }

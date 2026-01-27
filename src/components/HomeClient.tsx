@@ -72,29 +72,7 @@ export function HomeClient({ featuredProducts, saleProducts }: HomeClientProps) 
             </section>
 
             <div className="container mx-auto px-4">
-                {/* Sale Section */}
-                {saleProducts.length > 0 && (
-                    <section className="mb-16">
-                        <div className="flex items-center justify-between mb-8">
-                            <div>
-                                <h2 className="text-3xl mb-2">Limited Time Sale</h2>
-                                <p className="text-muted-foreground">Don't miss out on these amazing deals</p>
-                            </div>
-                            <Link
-                                href="/shop"
-                                className="hidden md:flex items-center gap-2 text-primary hover:underline"
-                            >
-                                View All
-                                <ArrowRight className="w-4 h-4" />
-                            </Link>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {saleProducts.map((product) => (
-                                <ProductCard key={product.id} product={product} />
-                            ))}
-                        </div>
-                    </section>
-                )}
+                {/* Sale Section Removed */}
 
                 {/* Featured Products */}
                 <section className="mb-16">
