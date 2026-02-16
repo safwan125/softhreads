@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base HSL values for Shadcn utility compatibility */
+    /* #f2efe9 -> HSL approx 40 20% 93% */
+    --background: 40 20% 93%;
+    /* #1a1a1a -> HSL approx 0 0% 10% */
+    --foreground: 0 0% 10%;
+
+    --card: 40 20% 93%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 40 20% 93%;
+    --popover-foreground: 0 0% 10%;
+
+    /* #1a1a1a */
+    --primary: 0 0% 10%;
+    --primary-foreground: 40 20% 98%;
+
+    /* #707a7e -> HSL approx 200 6% 47% */
+    --secondary: 40 10% 90%;
+    /* Lightened for bg usage */
+    --secondary-foreground: 200 6% 47%;
+
+    --muted: 40 10% 90%;
+    --muted-foreground: 200 6% 47%;
+
+    /* #3e4437 -> HSL approx 85 11% 24% */
+    --accent: 85 11% 24%;
+    --accent-foreground: 40 20% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 20% 98%;
+
+    --border: 40 10% 85%;
+    --input: 40 10% 85%;
+    --ring: 85 11% 24%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-bg text-primary antialiased;
+  }
+}
