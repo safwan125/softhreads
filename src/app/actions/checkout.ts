@@ -9,21 +9,23 @@ export async function processCheckout(cartItems: any[], customerAccessToken?: st
     }
 
     try {
-        // Map cart items to Shopify format
-        // Note: Check if 'id' is a valid merchandise ID (gid://shopify/ProductVariant/...)
-        // If it's a raw number or string like '123', we might need to prefix it, but our app likely stores full IDs or handles if mock.
-        // For real integration, we assume cartItems have correct variant IDs.
+        console.log("Processing Checkout for items:", JSON.stringify(cartItems, null, 2));
 
+        // Map cart items to Shopify format
         const lines = cartItems.map((item) => ({
             merchandiseId: item.id, // Ensure this is the Variant ID
             quantity: item.quantity,
         }));
 
+        console.log("Formatted Lines for Shopify:", JSON.stringify(lines, null, 2));
+
         const cart = await createCart(lines, customerAccessToken);
+        console.log("Cart Response:", JSON.stringify(cart, null, 2));
 
         if (cart && cart.checkoutUrl) {
             return { url: cart.checkoutUrl };
         } else {
+            console.error("Cart created but no URL found:", cart);
             return { error: "Failed to generate checkout URL" };
         }
 

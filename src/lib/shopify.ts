@@ -168,7 +168,7 @@ export async function storefrontFetch<T>(
 
     const json = await res.json();
     if (json.errors) {
-        console.error("GraphQL Errors:", json.errors);
+        console.error("GraphQL Errors:", JSON.stringify(json.errors, null, 2));
         throw new Error(json.errors[0].message || "GraphQL Error");
     }
 
