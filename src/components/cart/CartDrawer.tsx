@@ -20,9 +20,8 @@ export default function CartDrawer() {
 
     const handleCheckout = () => {
         startTransition(async () => {
-            // const token = localStorage.getItem("shopify_customer_token") || undefined;
-            // Validating if the token is causing the redirect.
-            const result = await processCheckout(cartItems, undefined);
+            const token = localStorage.getItem("shopify_customer_token") || undefined;
+            const result = await processCheckout(cartItems, token);
 
             if (result?.url) {
                 window.location.href = result.url;

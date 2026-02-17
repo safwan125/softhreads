@@ -61,7 +61,10 @@ async function getAdminAccessToken() {
 async function getStorefrontAccessToken() {
     // 1. Prefer Static Token from Env (Best Practice)
     if (process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN) {
+        console.log("✅ Using Static Storefront Token from Env");
         return process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
+    } else {
+        console.log("⚠️ No Static Token found in Env, attempting dynamic generation...");
     }
 
     if (cachedStorefrontToken) return cachedStorefrontToken;

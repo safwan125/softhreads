@@ -23,17 +23,21 @@ export async function processCheckout(cartItems: any[], customerAccessToken?: st
         console.log("Cart Response:", JSON.stringify(cart, null, 2));
 
         if (cart && cart.checkoutUrl) {
-            // FIX: If Shopify is using the custom domain for checkoutUrl (e.g. softhreads.com/cart/...), 
-            // it will 404 because Vercel hosts that domain.
-            // We must force it to use the myshopify.com domain for checkout.
+            // FIX: Robustly replace domain using URL object to handle www/non-www correctly.
+            // We want to force the internal myshopify domain to bypass Vercel's routing for checkout.
             let finalUrl = cart.checkoutUrl;
-            if (finalUrl.includes("softhreads.com")) {
-                finalUrl = finalUrl.replace("softhreads.com", "softhreads-2759.myshopify.com");
+            try {
+                const urlObj = new URL(finalUrl);
+                if (urlObj.hostname.includes("softhreads.com")) {
+                    urlObj.hostname = "softhreads-2759.myshopify.com";
+                    finalUrl = urlObj.toString();
+                }
+            } catch (e) {
+                console.error("Error parsing checkout URL:", e);
+                // Fallback to original if parsing fails, though unlikely
             }
-            // Handle www as well just in case
-            if (finalUrl.includes("www.softhreads.com")) {
-                finalUrl = finalUrl.replace("www.softhreads.com", "softhreads-2759.myshopify.com");
-            }
+
+            console.log("FINAL REDIRECT URL:", finalUrl);
 
             return { url: finalUrl };
         } else {
