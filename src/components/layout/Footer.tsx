@@ -53,8 +53,6 @@ export default function Footer() {
                             <Button className="shadow-neu-sm active:shadow-neu-pressed bg-primary text-primary-foreground hover:bg-primary/90">Join</Button>
                         </div>
                         <div className="pt-4 text-sm text-muted-foreground">
-                            <p>050, Chamavila Kizhakkathil,</p>
-                            <p>Kampalady, Poruvazhy P.O,</p>
                             <p>Kollam, Kerala 690520</p>
                             <p className="pt-2 font-medium text-foreground">+91 9048360561</p>
                             <p>support@softhreads.com</p>
