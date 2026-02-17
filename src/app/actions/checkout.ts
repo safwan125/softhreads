@@ -23,7 +23,19 @@ export async function processCheckout(cartItems: any[], customerAccessToken?: st
         console.log("Cart Response:", JSON.stringify(cart, null, 2));
 
         if (cart && cart.checkoutUrl) {
-            return { url: cart.checkoutUrl };
+            // FIX: If Shopify is using the custom domain for checkoutUrl (e.g. softhreads.com/cart/...), 
+            // it will 404 because Vercel hosts that domain.
+            // We must force it to use the myshopify.com domain for checkout.
+            let finalUrl = cart.checkoutUrl;
+            if (finalUrl.includes("softhreads.com")) {
+                finalUrl = finalUrl.replace("softhreads.com", "softhreads-2759.myshopify.com");
+            }
+            // Handle www as well just in case
+            if (finalUrl.includes("www.softhreads.com")) {
+                finalUrl = finalUrl.replace("www.softhreads.com", "softhreads-2759.myshopify.com");
+            }
+
+            return { url: finalUrl };
         } else {
             console.error("Cart created but no URL found:", cart);
             return { error: "Failed to generate checkout URL" };

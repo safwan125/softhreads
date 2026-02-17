@@ -125,15 +125,12 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                         </div>
                     </div>
 
-                    <div className="mt-6 flex gap-4">
+                    <div className="mt-6">
                         <Button
                             onClick={handleAddToCart}
-                            className="flex-1 h-14 rounded-xl text-lg font-semibold shadow-neu-md hover:shadow-neu-lg hover:-translate-y-0.5 transition-all bg-primary text-primary-foreground active:scale-95"
+                            className="w-full h-14 rounded-xl text-lg font-semibold shadow-neu-md hover:shadow-neu-lg hover:-translate-y-0.5 transition-all bg-primary text-primary-foreground active:scale-95"
                         >
                             <ShoppingCart className="mr-2 w-5 h-5" /> Add to Cart
-                        </Button>
-                        <Button variant="outline" className="flex-1 h-14 rounded-xl text-lg font-semibold shadow-neu-sm hover:bg-secondary/50">
-                            Buy Now
                         </Button>
                     </div>
 
