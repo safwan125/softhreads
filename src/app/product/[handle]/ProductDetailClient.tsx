@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import SizeChart from "@/components/product/SizeChart";
-import { ShoppingCart, Heart, Share2 } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/lib/cart-context";
 
@@ -53,14 +53,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                             className="object-cover"
                             priority
                         />
-                        <div className="absolute top-4 right-4 z-10 flex flex-col gap-2">
-                            <Button size="icon" variant="ghost" className="rounded-full bg-white/80 backdrop-blur-sm shadow-neu-sm hover:bg-white">
-                                <Heart className="w-5 h-5" />
-                            </Button>
-                            <Button size="icon" variant="ghost" className="rounded-full bg-white/80 backdrop-blur-sm shadow-neu-sm hover:bg-white">
-                                <Share2 className="w-5 h-5" />
-                            </Button>
-                        </div>
+
                     </div>
                     {/* Thumbnails (Mock) */}
                     <div className="flex gap-4 overflow-x-auto pb-2">
