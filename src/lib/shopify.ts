@@ -59,6 +59,11 @@ async function getAdminAccessToken() {
 
 // 2. Generate Storefront Access Token using Admin API
 async function getStorefrontAccessToken() {
+    // 1. Prefer Static Token from Env (Best Practice)
+    if (process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN) {
+        return process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
+    }
+
     if (cachedStorefrontToken) return cachedStorefrontToken;
 
     const adminToken = await getAdminAccessToken();
