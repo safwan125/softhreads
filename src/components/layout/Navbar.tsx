@@ -123,7 +123,7 @@ export default function Navbar() {
                         </Link>
                     ) : (
                         <Link href="/login">
-                            <Button variant="ghost" className="hidden md:flex rounded-full px-6 shadow-sm active:shadow-inner hover:bg-transparent transition-all text-primary font-medium">
+                            <Button className="hidden md:flex rounded-full px-6 shadow-sm hover:opacity-90 transition-all font-medium">
                                 Login
                             </Button>
                         </Link>

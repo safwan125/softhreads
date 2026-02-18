@@ -18,7 +18,7 @@ export default function Newsletter() {
                         placeholder="Enter your email"
                         className="h-12 bg-[#2A2A2A] border-[#333] text-white placeholder:text-[#666] focus-visible:ring-[#8C7355] focus-visible:border-[#8C7355]"
                     />
-                    <Button className="h-12 bg-[#8C7355] hover:bg-[#7A634A] text-white text-base font-medium rounded-md w-full">
+                    <Button className="h-12 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-medium rounded-md w-full">
                         Subscribe
                     </Button>
                 </form>
