@@ -17,9 +17,6 @@ export default function AboutPage() {
                     {/* Mission */}
                     <div className="bg-bg rounded-neu p-8 shadow-neu hover:shadow-neu-sm transition-all duration-300 border border-white/20">
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="p-3 bg-secondary/10 rounded-full text-primary">
-                                {/* <Target className="w-8 h-8" /> */} {/* Assuming Target is an icon component */}
-                            </div>
                             <h2 className="text-2xl font-bold text-primary font-serif">Our Mission</h2>
                         </div>
                         <p className="text-secondary leading-relaxed">
@@ -30,9 +27,6 @@ export default function AboutPage() {
                     {/* Vision */}
                     <div className="bg-bg rounded-neu p-8 shadow-neu hover:shadow-neu-sm transition-all duration-300 border border-white/20">
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="p-3 bg-secondary/10 rounded-full text-primary">
-                                {/* <Eye className="w-8 h-8" /> */} {/* Assuming Eye is an icon component */}
-                            </div>
                             <h2 className="text-2xl font-bold text-primary font-serif">Our Vision</h2>
                         </div>
                         <p className="text-secondary leading-relaxed">
@@ -48,23 +42,14 @@ export default function AboutPage() {
                     <h2 className="text-3xl font-bold text-primary text-center mb-12 font-serif">Why Choose Us?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="text-center p-6 rounded-2xl hover:bg-white/50 transition-colors">
-                            <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
-                                {/* <Heart className="w-8 h-8" /> */} {/* Assuming Heart is an icon component */}
-                            </div>
                             <h3 className="text-xl font-bold text-primary mb-2 font-serif">Passion for Quality</h3>
                             <p className="text-secondary">Every thread is chosen with care to ensure lasting comfort.</p>
                         </div>
                         <div className="text-center p-6 rounded-2xl hover:bg-white/50 transition-colors">
-                            <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
-                                {/* <Globe className="w-8 h-8" /> */} {/* Assuming Globe is an icon component */}
-                            </div>
                             <h3 className="text-xl font-bold text-primary mb-2 font-serif">Sustainable Practices</h3>
                             <p className="text-secondary">We believe in fashion that respects the planet.</p>
                         </div>
                         <div className="text-center p-6 rounded-2xl hover:bg-white/50 transition-colors">
-                            <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
-                                {/* <Users className="w-8 h-8" /> */} {/* Assuming Users is an icon component */}
-                            </div>
                             <h3 className="text-xl font-bold text-primary mb-2 font-serif">Community First</h3>
                             <p className="text-secondary">Building a community of conscious, stylish individuals.</p>
                         </div>
