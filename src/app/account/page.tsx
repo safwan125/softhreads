@@ -56,7 +56,7 @@ export default function AccountPage() {
 
                 {/* Main Content */}
                 <div className="w-full md:w-2/3 space-y-6">
-                    <h2 className="text-2xl font-bold">Order History</h2>
+                    <h2 className="text-2xl font-bold font-serif">Order History</h2>
                     <div className="space-y-4">
                         {orders.length === 0 ? (
                             <p className="text-muted-foreground">You haven't placed any orders yet.</p>
@@ -65,7 +65,7 @@ export default function AccountPage() {
                                 <Card key={order.id} className="shadow-neu-sm border-none bg-background hover:shadow-neu-md transition-all">
                                     <CardContent className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                                         <div>
-                                            <h3 className="font-semibold">Order #{order.orderNumber}</h3>
+                                            <h3 className="font-semibold font-serif">Order #{order.orderNumber}</h3>
                                             <p className="text-sm text-muted-foreground">{new Date(order.processedAt).toLocaleDateString()}</p>
                                             <p className="text-xs text-muted-foreground mt-1">
                                                 {order.lineItems.edges.map(e => `${e.node.title} x${e.node.quantity}`).join(", ")}

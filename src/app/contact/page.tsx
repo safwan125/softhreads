@@ -5,13 +5,13 @@ import { Mail, MapPin, Phone } from "lucide-react";
 export default function ContactPage() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-6xl">
-            <h1 className="text-4xl font-bold text-center mb-12 text-primary">Get in Touch</h1>
+            <h1 className="text-4xl font-bold text-center mb-12 text-primary font-serif">Get in Touch</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 {/* Contact Info */}
                 <div className="space-y-8">
                     <div className="bg-bg p-8 rounded-2xl shadow-neu">
-                        <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
+                        <h3 className="text-xl font-semibold mb-6 flex items-center gap-2 font-serif">
                             <Mail className="w-5 h-5 text-accent" /> Email Us
                         </h3>
                         <p className="text-secondary">support@softhreads.com</p>
@@ -19,7 +19,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className="bg-bg p-8 rounded-2xl shadow-neu">
-                        <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
+                        <h3 className="text-xl font-semibold mb-6 flex items-center gap-2 font-serif">
                             <Phone className="w-5 h-5 text-accent" /> Call Us
                         </h3>
                         <p className="text-secondary">+91 9048360561</p>
@@ -27,7 +27,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className="bg-bg p-8 rounded-2xl shadow-neu">
-                        <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
+                        <h3 className="text-xl font-semibold mb-6 flex items-center gap-2 font-serif">
                             <MapPin className="w-5 h-5 text-accent" /> Visit Us
                         </h3>
                         <p className="text-secondary">
@@ -40,7 +40,7 @@ export default function ContactPage() {
 
                 {/* Contact Form */}
                 <div className="bg-bg p-8 rounded-2xl shadow-neu">
-                    <h2 className="text-2xl font-semibold mb-6">Send us a message</h2>
+                    <h2 className="text-2xl font-semibold mb-6 font-serif">Send us a message</h2>
                     <form className="space-y-6">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-2">
