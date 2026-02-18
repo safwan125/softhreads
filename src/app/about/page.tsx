@@ -1,36 +1,97 @@
 export default function AboutPage() {
     return (
-        <div className="container mx-auto px-4 py-8 lg:py-16 max-w-4xl text-center">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">About Softhreads</h1>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-                Welcome to Softhreads, where style meets comfort. Born in the heart of Kerala, we are dedicated to providing premium quality clothing that doesn't compromise on elegance.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-                <div className="space-y-4">
-                    <h2 className="text-2xl font-semibold">Our Mission</h2>
-                    <p className="text-muted-foreground">
-                        To revolutionize the way you dress by offering a curated collection of apparel that blends modern aesthetics with traditional values of quality and durability.
+        <>
+            {/* Hero Section */}
+            <section className="bg-secondary/10 py-16 md:py-24 rounded-3xl shadow-neu-inset mx-4 mb-16">
+                <div className="container mx-auto px-4 text-center">
+                    <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6 font-serif">About Softhreads</h1>
+                    <p className="max-w-2xl mx-auto text-lg text-secondary leading-relaxed">
+                        Welcome to Softhreads, where style meets comfort. Born in the heart of Kerala, we are dedicated to providing premium quality clothing that doesn't compromise on elegance.
                     </p>
                 </div>
-                <div className="space-y-4">
-                    <h2 className="text-2xl font-semibold">Our Vision</h2>
-                    <p className="text-muted-foreground">
-                        To become a leading fashion destination known for our commitment to customer satisfaction and sustainable fashion practices.
-                    </p>
-                </div>
-            </div>
+            </section>
 
-            <div className="mt-16 bg-secondary/20 p-8 rounded-2xl shadow-neu-inner">
-                <h2 className="text-2xl font-semibold mb-4">Visit Us</h2>
-                <p className="text-muted-foreground">
-                    050, Chamavila Kizhakkathil, Kampalady,<br />
-                    Poruvazhy P.O, Kunnathur,<br />
-                    Kollam, Kerala 690520
-                </p>
-                <p className="mt-4 font-medium text-lg">+91 9048360561</p>
-                <p className="text-primary">support@softhreads.com</p>
-            </div>
-        </div>
+            {/* Mission & Vision Grid */}
+            <section className="container mx-auto px-4 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    {/* Mission */}
+                    <div className="bg-bg rounded-neu p-8 shadow-neu hover:shadow-neu-sm transition-all duration-300 border border-white/20">
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="p-3 bg-secondary/10 rounded-full text-primary">
+                                {/* <Target className="w-8 h-8" /> */} {/* Assuming Target is an icon component */}
+                            </div>
+                            <h2 className="text-2xl font-bold text-primary font-serif">Our Mission</h2>
+                        </div>
+                        <p className="text-secondary leading-relaxed">
+                            To revolutionize the way you dress by offering a curated collection of apparel that blends modern aesthetics with traditional values of quality and durability.
+                        </p>
+                    </div>
+
+                    {/* Vision */}
+                    <div className="bg-bg rounded-neu p-8 shadow-neu hover:shadow-neu-sm transition-all duration-300 border border-white/20">
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="p-3 bg-secondary/10 rounded-full text-primary">
+                                {/* <Eye className="w-8 h-8" /> */} {/* Assuming Eye is an icon component */}
+                            </div>
+                            <h2 className="text-2xl font-bold text-primary font-serif">Our Vision</h2>
+                        </div>
+                        <p className="text-secondary leading-relaxed">
+                            To become a leading fashion destination known for our commitment to customer satisfaction and sustainable fashion practices.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Values Section */}
+            <section className="bg-bg py-16 mb-20">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl font-bold text-primary text-center mb-12 font-serif">Why Choose Us?</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="text-center p-6 rounded-2xl hover:bg-white/50 transition-colors">
+                            <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+                                {/* <Heart className="w-8 h-8" /> */} {/* Assuming Heart is an icon component */}
+                            </div>
+                            <h3 className="text-xl font-bold text-primary mb-2 font-serif">Passion for Quality</h3>
+                            <p className="text-secondary">Every thread is chosen with care to ensure lasting comfort.</p>
+                        </div>
+                        <div className="text-center p-6 rounded-2xl hover:bg-white/50 transition-colors">
+                            <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+                                {/* <Globe className="w-8 h-8" /> */} {/* Assuming Globe is an icon component */}
+                            </div>
+                            <h3 className="text-xl font-bold text-primary mb-2 font-serif">Sustainable Practices</h3>
+                            <p className="text-secondary">We believe in fashion that respects the planet.</p>
+                        </div>
+                        <div className="text-center p-6 rounded-2xl hover:bg-white/50 transition-colors">
+                            <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+                                {/* <Users className="w-8 h-8" /> */} {/* Assuming Users is an icon component */}
+                            </div>
+                            <h3 className="text-xl font-bold text-primary mb-2 font-serif">Community First</h3>
+                            <p className="text-secondary">Building a community of conscious, stylish individuals.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Map / Visit Us Section */}
+            <section className="bg-secondary/5 py-16 rounded-t-3xl shadow-neu-inner">
+                <div className="container mx-auto px-4 text-center">
+                    <h2 className="text-3xl font-bold text-primary mb-8 font-serif">Visit Us</h2>
+                    <div className="bg-bg p-8 rounded-neu shadow-neu max-w-2xl mx-auto border border-white/20">
+                        <p className="text-lg text-primary font-medium mb-2">Softhreads HeadQuarters</p>
+                        <p className="text-secondary mb-6">
+                            050, Chamavila Kizhakkathil, Kampaladi<br />
+                            Poruvazhy P.O, Kunnathur<br />
+                            Kollam, Kerala 690520<br />
+                            India
+                        </p>
+                        <div className="flex justify-center gap-4">
+                            {/* <Button className="shadow-neu-sm hover:shadow-neu-pressed bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8">
+                          Get Directions
+                      </Button> */} {/* Assuming Button is a component */}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
     );
 }
