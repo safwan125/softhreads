@@ -1,5 +1,6 @@
 import HeroCarousel from "@/components/home/HeroCarousel";
 import ProductCard from "@/components/product/ProductCard";
+import FabricPhilosophy from "@/components/home/FabricPhilosophy";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -63,7 +64,7 @@ export default async function Home() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-primary">New Arrivals</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-primary font-serif">New Arrivals</h2>
               <p className="text-secondary">Fresh looks just for you.</p>
             </div>
             <Link href="/shop">
@@ -81,6 +82,9 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      {/* Fabric Philosophy Section */}
+      <FabricPhilosophy />
 
     </div>
   );
