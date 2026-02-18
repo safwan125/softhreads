@@ -316,11 +316,21 @@ export async function getProduct(handle: string) {
                         }
                     }
                 }
-                variants(first: 10) {
+                options {
+                    name
+                    values
+                }
+                variants(first: 20) {
                     edges {
                         node {
                             id
                             title
+                            availableForSale
+                            quantityAvailable
+                            selectedOptions {
+                                name
+                                value
+                            }
                             price {
                                 amount
                             }
@@ -342,13 +352,20 @@ export async function getProduct(handle: string) {
         handle: node.handle,
         description: node.description,
         price: parseFloat(node.priceRange.minVariantPrice.amount),
-        compareAtPrice: null, // Shopify basic query doesn't always strictly return this unless requested on variant, simplifying for now
+        compareAtPrice: null,
         currency: node.priceRange.minVariantPrice.currencyCode,
         image: node.images.edges[0]?.node.url || "",
         images: node.images.edges.map((e: any) => e.node.url),
+        options: node.options.map((o: any) => ({
+            name: o.name,
+            values: o.values
+        })),
         variants: node.variants.edges.map((e: any) => ({
             id: e.node.id,
             title: e.node.title,
+            availableForSale: e.node.availableForSale,
+            quantityAvailable: e.node.quantityAvailable,
+            selectedOptions: e.node.selectedOptions,
             price: parseFloat(e.node.price.amount)
         })),
         variantId: node.variants.edges[0]?.node.id, // Default variant

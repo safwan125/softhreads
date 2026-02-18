@@ -14,9 +14,7 @@ export default function ReturnsPage() {
                     <div className="bg-bg p-8 rounded-2xl shadow-neu border border-secondary/20 md:col-span-2">
                         <h2 className="text-2xl font-semibold mb-4 text-primary font-serif">Standard Return Policy</h2>
                         <div className="space-y-4 text-secondary leading-relaxed">
-                            <p>
-                                You have <strong>30 days</strong> from the date of delivery to return your item(s).
-                            </p>
+                            You have <strong>14 days</strong> from the date of delivery to return your item(s).
                             <p>
                                 To be eligible for a return, your item must be unused, unworn, and in the same condition that you received it. It must also be in the original packaging with all tags attached.
                             </p>

@@ -50,6 +50,6 @@
   }
 
   body {
-    @apply bg-bg text-primary antialiased;
+    @apply bg-bg text-primary antialiased overflow-x-hidden;
   }
 }

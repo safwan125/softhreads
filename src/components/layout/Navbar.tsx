@@ -52,21 +52,21 @@ export default function Navbar() {
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center space-x-8">
-                    <Link href="/" className="text-secondary hover:text-primary transition-colors font-medium">
+                    <Link href="/" className="text-secondary hover:text-primary transition-colors font-medium uppercase tracking-wider text-sm">
                         Home
                     </Link>
                     <div className="group relative">
-                        <Link href="/shop" className="text-secondary hover:text-primary transition-colors font-medium flex items-center gap-1">
+                        <Link href="/shop" className="text-secondary hover:text-primary transition-colors font-medium flex items-center gap-1 uppercase tracking-wider text-sm">
                             Shop
                         </Link>
                         {/* Neumorphic Dropdown */}
                         <div className="absolute top-full text-sm left-1/2 -translate-x-1/2 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-bg rounded-xl shadow-md p-4 flex flex-col gap-2 z-50">
-                            <Link href="/shop" className="block px-4 py-2 hover:bg-gray-100/50 rounded-lg transition-colors text-primary font-medium">All Products</Link>
-                            <Link href="/shop?q=men" className="block px-4 py-2 hover:bg-gray-100/50 rounded-lg transition-colors text-primary font-medium">Men</Link>
-                            <Link href="/shop?q=women" className="block px-4 py-2 hover:bg-gray-100/50 rounded-lg transition-colors text-primary font-medium">Women</Link>
+                            <Link href="/shop" className="block px-4 py-2 hover:bg-gray-100/50 rounded-lg transition-colors text-primary font-medium uppercase tracking-wide text-xs">All Products</Link>
+                            <Link href="/shop?q=men" className="block px-4 py-2 hover:bg-gray-100/50 rounded-lg transition-colors text-primary font-medium uppercase tracking-wide text-xs">Men</Link>
+                            <Link href="/shop?q=women" className="block px-4 py-2 hover:bg-gray-100/50 rounded-lg transition-colors text-primary font-medium uppercase tracking-wide text-xs">Women</Link>
                         </div>
                     </div>
-                    <Link href="/about" className="text-secondary hover:text-primary transition-colors font-medium">
+                    <Link href="/about" className="text-secondary hover:text-primary transition-colors font-medium uppercase tracking-wider text-sm">
                         About Us
                     </Link>
                 </div>
@@ -145,13 +145,13 @@ export default function Navbar() {
 
                             {/* Removed shadow-neu, used shadow-xl */}
                             <div className="flex flex-col gap-6 mt-10">
-                                <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors">Home</Link>
+                                <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">Home</Link>
                                 <div className="flex flex-col gap-3 pl-4 border-l-2 border-primary/10">
-                                    <span className="text-sm font-semibold text-secondary uppercase">Shop</span>
-                                    <Link href="/shop?q=men" className="text-lg font-medium text-primary hover:text-accent transition-colors">Men</Link>
-                                    <Link href="/shop?q=women" className="text-lg font-medium text-primary hover:text-accent transition-colors">Women</Link>
+                                    <span className="text-sm font-semibold text-secondary uppercase tracking-widest">Shop</span>
+                                    <Link href="/shop?q=men" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">Men</Link>
+                                    <Link href="/shop?q=women" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">Women</Link>
                                 </div>
-                                <Link href="/about" className="text-lg font-medium text-primary hover:text-accent transition-colors">About Us</Link>
+                                <Link href="/about" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">About Us</Link>
 
                                 {isAuthenticated ? (
                                     <Link href="/account" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">

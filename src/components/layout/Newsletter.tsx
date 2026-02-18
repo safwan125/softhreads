@@ -27,7 +27,7 @@ export default function Newsletter() {
     return (
         <section className="bg-[#1A1A1A] py-20 text-center text-white">
             <div className="container mx-auto px-4 max-w-2xl">
-                <h2 className="text-3xl md:text-4xl font-serif mb-4 text-[#F2EFE9]">Join the Soft Side</h2>
+                <h2 className="text-3xl md:text-4xl font-serif mb-4 text-[#F2EFE9]">Join Softhreads</h2>
                 <p className="text-[#A0A0A0] mb-8 leading-relaxed">
                     Subscribe for early access to new drops, exclusive offers, and fabric stories.
                 </p>
