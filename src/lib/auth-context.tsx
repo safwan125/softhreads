@@ -72,14 +72,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         // We'll trust the caller (login page) to handle the initial fetch or use a separate server action.
         // For now, let's create a server action in a separate file (or we can't... we need to update auth.ts first).
 
-        // TEMPORARY: We will fetch via a new server action `getUserProfile`.
-        // I will assume it exists and add it to `auth.ts` in next step.
-        const { getUserProfile } = await import("@/app/actions/auth-profile");
-        const userData = await getUserProfile(token);
-        if (userData) {
-            setUser(userData);
-        } else {
-            throw new Error("Invalid token");
+        // We will fetch via the server action `getUserProfile` from `auth.ts`.
+        try {
+            const { getUserProfile } = await import("@/app/actions/auth");
+            const userData = await getUserProfile(token);
+            if (userData) {
+                setUser(userData);
+            } else {
+                throw new Error("Invalid token");
+            }
+        } catch (error) {
+            console.error("Failed to refresh user profile:", error);
+            logout();
         }
     };
 

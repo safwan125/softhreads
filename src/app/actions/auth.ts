@@ -52,3 +52,16 @@ export async function forgotPassword(prevState: any, formData: FormData) {
         return { error: error.message || "Failed to send reset email" };
     }
 }
+
+export async function getUserProfile(token: string) {
+    if (!token) return null;
+
+    try {
+        const { getCustomer } = await import("@/lib/shopify");
+        const customer = await getCustomer(token);
+        return customer;
+    } catch (error) {
+        console.error("Failed to fetch user profile:", error);
+        return null;
+    }
+}
