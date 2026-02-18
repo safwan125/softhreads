@@ -46,7 +46,7 @@ export default function Navbar() {
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold tracking-tighter text-primary">
+                <Link href="/" className="text-2xl font-bold tracking-tighter text-primary font-serif">
                     SOFTHREADS
                 </Link>
 

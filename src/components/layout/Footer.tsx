@@ -10,7 +10,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                     {/* Brand */}
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-bold tracking-tighter">SOFTHREADS</h3>
+                        <h3 className="text-2xl font-bold tracking-tighter font-serif">SOFTHREADS</h3>
                         <p className="text-muted-foreground text-sm leading-relaxed">
                             Premium clothing for the modern individual. Designed with comfort and style in mind.
                         </p>
@@ -27,7 +27,7 @@ export default function Footer() {
                     </div>
                     {/* Shop Links */}
                     <div className="space-y-4">
-                        <h4 className="font-semibold text-lg">Shop</h4>
+                        <h4 className="font-semibold text-lg font-serif">Shop</h4>
                         <ul className="space-y-2 text-muted-foreground text-sm">
                             <li><Link href="/shop/men" className="hover:text-primary transition-colors">Men's Collection</Link></li>
                             <li><Link href="/shop/women" className="hover:text-primary transition-colors">Women's Collection</Link></li>
@@ -38,7 +38,7 @@ export default function Footer() {
 
                     {/* Support Links */}
                     <div className="space-y-4">
-                        <h4 className="font-semibold text-lg">Support</h4>
+                        <h4 className="font-semibold text-lg font-serif">Support</h4>
                         <ul className="space-y-2 text-muted-foreground text-sm">
                             <li><Link href="/account" className="hover:text-primary transition-colors">Track Order</Link></li>
                             <li><Link href="/returns" className="hover:text-primary transition-colors">Returns & Exchange</Link></li>
@@ -50,7 +50,7 @@ export default function Footer() {
 
                     {/* Newsletter / Contact */}
                     <div className="space-y-4">
-                        <h4 className="font-semibold text-lg">Stay in the loop</h4>
+                        <h4 className="font-semibold text-lg font-serif">Stay in the loop</h4>
                         <p className="text-muted-foreground text-sm">Subscribe to get special offers, free giveaways, and deals.</p>
                         <div className="flex gap-2">
                             <Input placeholder="Enter your email" className="bg-background shadow-neu-pressed border-none focus-visible:ring-1" />

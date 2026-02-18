@@ -60,10 +60,9 @@ export default function ProductCard({ product }: ProductCardProps) {
                 />
             </Link>
 
-            {/* Content */}
             <div className="flex flex-col flex-grow space-y-2">
                 <Link href={`/product/${product.handle}`}>
-                    <h3 className="font-semibold text-lg text-primary truncate hover:text-accent transition-colors">
+                    <h3 className="font-serif text-xl tracking-tight text-primary truncate hover:text-accent transition-colors">
                         {product.title}
                     </h3>
                 </Link>
