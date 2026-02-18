@@ -27,52 +27,50 @@ export default function Footer() {
                             </Button>
                         </div>
                     </div>
-                </div>
-
-                {/* Shop Links */}
-                <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">Shop</h4>
-                    <ul className="space-y-2 text-muted-foreground text-sm">
-                        <li><Link href="/shop/men" className="hover:text-primary transition-colors">Men's Collection</Link></li>
-                        <li><Link href="/shop/women" className="hover:text-primary transition-colors">Women's Collection</Link></li>
-                        <li><Link href="/shop/new-arrivals" className="hover:text-primary transition-colors">New Arrivals</Link></li>
-                        <li><Link href="/shop/sale" className="hover:text-primary transition-colors">Sale</Link></li>
-                    </ul>
-                </div>
-
-                {/* Support Links */}
-                <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">Support</h4>
-                    <ul className="space-y-2 text-muted-foreground text-sm">
-                        <li><Link href="/account" className="hover:text-primary transition-colors">Track Order</Link></li>
-                        <li><Link href="/returns" className="hover:text-primary transition-colors">Returns & Exchange</Link></li>
-                        <li><Link href="/legal/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-                        <li><Link href="/legal/terms-and-conditions" className="hover:text-primary transition-colors">Terms & Conditions</Link></li>
-                        <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
-                    </ul>
-                </div>
-
-                {/* Newsletter / Contact */}
-                <div className="space-y-4">
-                    <h4 className="font-semibold text-lg">Stay in the loop</h4>
-                    <p className="text-muted-foreground text-sm">Subscribe to get special offers, free giveaways, and deals.</p>
-                    <div className="flex gap-2">
-                        <Input placeholder="Enter your email" className="bg-background shadow-neu-pressed border-none focus-visible:ring-1" />
-                        <Button className="shadow-neu-sm active:shadow-neu-pressed bg-primary text-primary-foreground hover:bg-primary/90">Join</Button>
+                    {/* Shop Links */}
+                    <div className="space-y-4">
+                        <h4 className="font-semibold text-lg">Shop</h4>
+                        <ul className="space-y-2 text-muted-foreground text-sm">
+                            <li><Link href="/shop/men" className="hover:text-primary transition-colors">Men's Collection</Link></li>
+                            <li><Link href="/shop/women" className="hover:text-primary transition-colors">Women's Collection</Link></li>
+                            <li><Link href="/shop/new-arrivals" className="hover:text-primary transition-colors">New Arrivals</Link></li>
+                            <li><Link href="/shop/sale" className="hover:text-primary transition-colors">Sale</Link></li>
+                        </ul>
                     </div>
-                    <div className="pt-4 text-sm text-muted-foreground">
-                        <p>Kollam, Kerala 690520</p>
-                        <p className="pt-2 font-medium text-foreground">+91 9048360561</p>
-                        <p>support@softhreads.com</p>
+
+                    {/* Support Links */}
+                    <div className="space-y-4">
+                        <h4 className="font-semibold text-lg">Support</h4>
+                        <ul className="space-y-2 text-muted-foreground text-sm">
+                            <li><Link href="/account" className="hover:text-primary transition-colors">Track Order</Link></li>
+                            <li><Link href="/returns" className="hover:text-primary transition-colors">Returns & Exchange</Link></li>
+                            <li><Link href="/legal/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+                            <li><Link href="/legal/terms-and-conditions" className="hover:text-primary transition-colors">Terms & Conditions</Link></li>
+                            <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
+                        </ul>
                     </div>
+
+                    {/* Newsletter / Contact */}
+                    <div className="space-y-4">
+                        <h4 className="font-semibold text-lg">Stay in the loop</h4>
+                        <p className="text-muted-foreground text-sm">Subscribe to get special offers, free giveaways, and deals.</p>
+                        <div className="flex gap-2">
+                            <Input placeholder="Enter your email" className="bg-background shadow-neu-pressed border-none focus-visible:ring-1" />
+                            <Button className="shadow-neu-sm active:shadow-neu-pressed bg-primary text-primary-foreground hover:bg-primary/90">Join</Button>
+                        </div>
+                        <div className="pt-4 text-sm text-muted-foreground">
+                            <p>Kollam, Kerala 690520</p>
+                            <p className="pt-2 font-medium text-foreground">+91 9048360561</p>
+                            <p>support@softhreads.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="border-t border-secondary pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground text-center md:text-left">
+                    <p>&copy; {new Date().getFullYear()} Softhreads. All rights reserved.</p>
+                    <p className="mt-2 md:mt-0 font-medium text-primary">Crafted with care for conscious comfort.</p>
                 </div>
             </div>
-
-            <div className="border-t border-secondary pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground text-center md:text-left">
-                <p>&copy; {new Date().getFullYear()} Softhreads. All rights reserved.</p>
-                <p className="mt-2 md:mt-0 font-medium text-primary">Crafted with care for conscious comfort.</p>
-            </div>
-        </div>
-        </footer >
+        </footer>
     );
 }
