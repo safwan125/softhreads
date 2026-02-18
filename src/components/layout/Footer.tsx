@@ -58,6 +58,12 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-        </footer >
+
+                <div className="border-t border-secondary pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground text-center md:text-left">
+                    <p>&copy; {new Date().getFullYear()} Softhreads. All rights reserved.</p>
+                    <p className="mt-2 md:mt-0 font-medium text-primary">Crafted with care for conscious comfort.</p>
+                </div>
+            </div>
+        </footer>
     );
 }
