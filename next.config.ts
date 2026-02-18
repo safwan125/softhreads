@@ -12,6 +12,13 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com', // For placeholders
         pathname: '/**',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'shopify.com',
+        pathname: '/**',
+        port: '',
       }
     ],
   },

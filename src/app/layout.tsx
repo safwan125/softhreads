@@ -12,6 +12,9 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 export const metadata: Metadata = {
   title: "Softhreads | Premium Clothing for Men & Women",
   description: "Discover the latest fashion trends at Softhreads. Premium quality clothing for men and women.",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 import { Providers } from "@/components/providers";
