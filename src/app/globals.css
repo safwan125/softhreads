@@ -16,9 +16,10 @@
     --popover: 40 20% 93%;
     --popover-foreground: 0 0% 10%;
 
-    /* #1a1a1a */
-    --primary: 0 0% 10%;
-    --primary-foreground: 40 20% 98%;
+    /* Deep Earthy Green #4A5D45 approx -> HSL 110 15% 32% */
+    /* Let's go slightly darker/richer for buttons: #3A4D39 -> 117 15% 26% */
+    --primary: 115 15% 26%;
+    --primary-foreground: 0 0% 100%;
 
     /* #707a7e -> HSL approx 200 6% 47% */
     --secondary: 40 10% 90%;
