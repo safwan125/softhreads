@@ -1,6 +1,9 @@
 import HeroCarousel from "@/components/home/HeroCarousel";
 import ProductCard from "@/components/product/ProductCard";
 import FabricPhilosophy from "@/components/home/FabricPhilosophy";
+import Reviews from "@/components/home/Reviews";
+import Stats from "@/components/home/Stats";
+import Newsletter from "@/components/layout/Newsletter";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -85,6 +88,15 @@ export default async function Home() {
 
       {/* Fabric Philosophy Section */}
       <FabricPhilosophy />
+
+      {/* Reviews Section */}
+      <Reviews />
+
+      {/* Stats Section */}
+      <Stats />
+
+      {/* Newsletter Section */}
+      <Newsletter />
 
     </div>
   );
