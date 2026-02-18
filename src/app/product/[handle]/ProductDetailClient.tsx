@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -227,10 +228,10 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                             <span className="text-2xl">🚚</span>
                             <span className="text-xs font-medium">Free Shipping</span>
                         </div>
-                        <div className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-secondary/10">
+                        <Link href="/returns" className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-secondary/10 hover:bg-secondary/20 transition-colors cursor-pointer">
                             <span className="text-2xl">↩️</span>
                             <span className="text-xs font-medium">14 Day Returns</span>
-                        </div>
+                        </Link>
                         <div className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-secondary/10">
                             <span className="text-2xl">🛡️</span>
                             <span className="text-xs font-medium">Secure Pay</span>
