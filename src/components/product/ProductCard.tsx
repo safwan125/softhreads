@@ -60,20 +60,20 @@ export default function ProductCard({ product }: ProductCardProps) {
                 />
             </Link>
 
-            <div className="flex flex-col flex-grow space-y-2">
+            <div className="flex flex-col flex-grow space-y-1 mt-2">
                 <Link href={`/product/${product.handle}`}>
-                    <h3 className="font-serif text-xl tracking-tight text-primary truncate hover:text-accent transition-colors">
+                    <h3 className="font-serif text-3xl font-bold tracking-tight text-primary truncate hover:text-accent transition-colors">
                         {product.title}
                     </h3>
                 </Link>
 
                 <div className="flex items-end justify-between mt-auto">
                     <div className="flex flex-col">
-                        <span className="text-xl font-bold text-primary">
-                            ₹{product.price.toLocaleString('en-IN')}
+                        <span className="text-base font-normal text-secondary">
+                            From ₹{product.price.toLocaleString('en-IN')}
                         </span>
                         {product.compareAtPrice && (
-                            <span className="text-sm text-secondary line-through">
+                            <span className="text-xs text-muted-foreground line-through">
                                 ₹{product.compareAtPrice.toLocaleString('en-IN')}
                             </span>
                         )}
