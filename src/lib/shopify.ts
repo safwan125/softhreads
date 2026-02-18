@@ -326,7 +326,6 @@ export async function getProduct(handle: string) {
                             id
                             title
                             availableForSale
-                            quantityAvailable
                             selectedOptions {
                                 name
                                 value
@@ -364,7 +363,6 @@ export async function getProduct(handle: string) {
             id: e.node.id,
             title: e.node.title,
             availableForSale: e.node.availableForSale,
-            quantityAvailable: e.node.quantityAvailable,
             selectedOptions: e.node.selectedOptions,
             price: parseFloat(e.node.price.amount)
         })),
