@@ -67,7 +67,7 @@ export default function HeroCarousel() {
                             <p className="text-base md:text-xl font-medium mb-8 max-w-xs md:max-w-lg text-white/90 drop-shadow-sm animate-in slide-in-from-bottom-5 duration-700 delay-200 fade-in">
                                 {slide.subtitle}
                             </p>
-                            <Button size="lg" asChild className="rounded-full px-8 py-6 text-lg bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl border-none animate-in zoom-in-50 duration-500 delay-500 cursor-pointer">
+                            <Button size="lg" asChild className="rounded-full px-8 py-6 text-lg bg-white text-primary hover:bg-gray-100 shadow-xl border-none animate-in zoom-in-50 duration-500 delay-500 cursor-pointer">
                                 {/* Use asChild to avoid hydration issues with nesting if strictly needed, but Button usually handles generic props. 
                                     Actually, the slide has a 'link'. We should wrap the button or make it a Link.
                                 */}
