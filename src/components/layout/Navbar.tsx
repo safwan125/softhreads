@@ -60,10 +60,23 @@ export default function Navbar() {
                             Shop
                         </Link>
                         {/* Neumorphic Dropdown */}
-                        <div className="absolute top-full text-sm left-1/2 -translate-x-1/2 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-bg rounded-xl shadow-md p-4 flex flex-col gap-2 z-50">
-                            <Link href="/shop" className="block px-4 py-2 hover:bg-gray-100/50 rounded-lg transition-colors text-primary font-medium uppercase tracking-wide text-xs">All Products</Link>
-                            <Link href="/shop?q=men" className="block px-4 py-2 hover:bg-gray-100/50 rounded-lg transition-colors text-primary font-medium uppercase tracking-wide text-xs">Men</Link>
-                            <Link href="/shop?q=women" className="block px-4 py-2 hover:bg-gray-100/50 rounded-lg transition-colors text-primary font-medium uppercase tracking-wide text-xs">Women</Link>
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-96 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-bg rounded-xl shadow-md p-6 grid grid-cols-2 gap-6 z-50 border border-white/50">
+                            <div>
+                                <Link href="/shop?q=men" className="block font-bold text-primary mb-3 uppercase tracking-wider text-xs hover:text-accent transition-colors">Men</Link>
+                                <div className="flex flex-col gap-2">
+                                    <Link href="/shop?q=men t-shirt" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">T-Shirts</Link>
+                                    <Link href="/shop?q=men shirt" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">Shirts</Link>
+                                    <Link href="/shop?q=men sweatshirt" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">Sweatshirts</Link>
+                                </div>
+                            </div>
+                            <div>
+                                <Link href="/shop?q=women" className="block font-bold text-primary mb-3 uppercase tracking-wider text-xs hover:text-accent transition-colors">Women</Link>
+                                <div className="flex flex-col gap-2">
+                                    <Link href="/shop?q=women kurti set" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">Kurti Sets</Link>
+                                    <Link href="/shop?q=saree" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">Sarees</Link>
+                                    <Link href="/shop?q=women co-ords" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">Co-ords</Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <Link href="/about" className="text-secondary hover:text-primary transition-colors font-medium uppercase tracking-wider text-sm">
@@ -136,7 +149,7 @@ export default function Navbar() {
                                 <Menu className="w-5 h-5" />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-bg border-none shadow-xl">
+                        <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-bg border-none shadow-xl overflow-y-auto">
                             <div className="sr-only">
                                 {/* Accessibility: required primitives */}
                                 <SheetTitle>Mobile Menu</SheetTitle>
@@ -146,10 +159,28 @@ export default function Navbar() {
                             {/* Removed shadow-neu, used shadow-xl */}
                             <div className="flex flex-col gap-6 mt-10">
                                 <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">Home</Link>
-                                <div className="flex flex-col gap-3 pl-4 border-l-2 border-primary/10">
+                                <div className="flex flex-col gap-4 pl-4 border-l-2 border-primary/10">
                                     <span className="text-sm font-semibold text-secondary uppercase tracking-widest">Shop</span>
-                                    <Link href="/shop?q=men" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">Men</Link>
-                                    <Link href="/shop?q=women" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">Women</Link>
+
+                                    {/* Men Mobile */}
+                                    <div className="flex flex-col gap-2 pl-2">
+                                        <Link href="/shop?q=men" className="text-base font-medium text-primary hover:text-accent transition-colors">Men</Link>
+                                        <div className="flex flex-col gap-2 pl-3 text-sm text-secondary">
+                                            <Link href="/shop?q=men t-shirt" className="hover:text-primary transition-colors">- T-Shirts</Link>
+                                            <Link href="/shop?q=men shirt" className="hover:text-primary transition-colors">- Shirts</Link>
+                                            <Link href="/shop?q=men sweatshirt" className="hover:text-primary transition-colors">- Sweatshirts</Link>
+                                        </div>
+                                    </div>
+
+                                    {/* Women Mobile */}
+                                    <div className="flex flex-col gap-2 pl-2">
+                                        <Link href="/shop?q=women" className="text-base font-medium text-primary hover:text-accent transition-colors">Women</Link>
+                                        <div className="flex flex-col gap-2 pl-3 text-sm text-secondary">
+                                            <Link href="/shop?q=women kurti set" className="hover:text-primary transition-colors">- Kurti Sets</Link>
+                                            <Link href="/shop?q=saree" className="hover:text-primary transition-colors">- Sarees</Link>
+                                            <Link href="/shop?q=women co-ords" className="hover:text-primary transition-colors">- Co-ords</Link>
+                                        </div>
+                                    </div>
                                 </div>
                                 <Link href="/about" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">About Us</Link>
 
