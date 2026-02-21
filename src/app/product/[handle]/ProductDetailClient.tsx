@@ -67,7 +67,8 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         if (!selectedVariant) return;
 
         addToCart({
-            id: selectedVariant.id,
+            id: product.id,
+            variantId: selectedVariant.id,
             title: product.title,
             handle: product.handle,
             image: product.image,

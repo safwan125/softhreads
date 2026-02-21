@@ -62,7 +62,7 @@ export default function CartDrawer() {
                     <>
                         <div className="flex-1 overflow-y-auto px-6 py-4 space-y-6">
                             {cartItems.map((item) => (
-                                <div key={`${item.id}-${item.size}-${item.color}`} className="flex gap-4">
+                                <div key={`${item.variantId || item.id}-${item.size}-${item.color}`} className="flex gap-4">
                                     <div className="relative w-24 aspect-[3/4] rounded-xl overflow-hidden shadow-neu-inset bg-gray-100 flex-shrink-0">
                                         <Image
                                             src={item.image}
@@ -88,7 +88,7 @@ export default function CartDrawer() {
                                             {/* Quantity Control - Neumorphic */}
                                             <div className="flex items-center bg-bg rounded-lg shadow-neu-inset p-1">
                                                 <button
-                                                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                                    onClick={() => updateQuantity(item.variantId || item.id, item.quantity - 1)}
                                                     className="w-7 h-7 flex items-center justify-center rounded-md hover:text-accent transition-colors disabled:opacity-30"
                                                     disabled={item.quantity <= 1}
                                                 >
@@ -96,7 +96,7 @@ export default function CartDrawer() {
                                                 </button>
                                                 <span className="w-8 text-center text-sm font-medium text-primary">{item.quantity}</span>
                                                 <button
-                                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                                    onClick={() => updateQuantity(item.variantId || item.id, item.quantity + 1)}
                                                     className="w-7 h-7 flex items-center justify-center rounded-md hover:text-accent transition-colors"
                                                 >
                                                     <Plus className="w-3 h-3" />
@@ -105,7 +105,7 @@ export default function CartDrawer() {
                                             <div className="flex flex-col items-end">
                                                 <span className="font-bold text-primary">₹{(item.price * item.quantity).toLocaleString('en-IN')}</span>
                                                 <button
-                                                    onClick={() => removeFromCart(item.id)}
+                                                    onClick={() => removeFromCart(item.variantId || item.id)}
                                                     className="text-xs text-red-500 hover:text-red-600 mt-1 flex items-center gap-1 font-medium"
                                                 >
                                                     Remove

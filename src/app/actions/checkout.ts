@@ -13,14 +13,14 @@ export async function processCheckout(cartItems: any[], customerAccessToken?: st
 
         // Map cart items to Shopify format
         const lines = cartItems.map((item) => ({
-            merchandiseId: item.id, // Ensure this is the Variant ID
+            merchandiseId: item.variantId || item.id, // Ensure this is the Variant ID
             quantity: item.quantity,
         }));
 
         console.log("Formatted Lines for Shopify:", JSON.stringify(lines, null, 2));
 
         const cart = await createCart(lines, customerAccessToken);
-        console.log("Cart Response:", JSON.stringify(cart, null, 2));
+        console.log("Cart Response from createCart:", JSON.stringify(cart, null, 2));
 
         if (cart && cart.checkoutUrl) {
             // FIX: Robustly replace domain using URL object to handle www/non-www correctly.
