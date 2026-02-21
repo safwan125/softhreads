@@ -30,7 +30,7 @@ const slides = [
     },
     {
         id: 3,
-        title: "Limited Edition Drops",
+        title: "Kids Drops",
         subtitle: "Exclusive designs. Premium fabrics.",
         image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1600&auto=format&fit=crop&q=80",
         cta: "Shop All",

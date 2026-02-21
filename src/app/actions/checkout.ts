@@ -28,10 +28,9 @@ export async function processCheckout(cartItems: any[], customerAccessToken?: st
             let finalUrl = cart.checkoutUrl;
             try {
                 const urlObj = new URL(finalUrl);
-                if (urlObj.hostname.includes("softhreads.com")) {
-                    urlObj.hostname = "softhreads-2759.myshopify.com";
-                    finalUrl = urlObj.toString();
-                }
+                // Always use the myshopify.com domain for checkout
+                urlObj.hostname = "softhreads-2759.myshopify.com";
+                finalUrl = urlObj.toString();
             } catch (e) {
                 console.error("Error parsing checkout URL:", e);
                 // Fallback to original if parsing fails, though unlikely

@@ -6,11 +6,12 @@ import { Input } from "@/components/ui/input";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Loader2 } from "lucide-react";
+import { Loader2, Eye, EyeOff } from "lucide-react";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const { login } = useAuth();
     const router = useRouter();
@@ -62,15 +63,22 @@ export default function LoginPage() {
                                 className="h-14 rounded-xl bg-bg border border-secondary/20 shadow-neu-inset focus:ring-1 focus:ring-accent font-medium text-lg placeholder:font-normal"
                             />
                         </div>
-                        <div>
+                        <div className="relative">
                             <Input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
-                                className="h-14 rounded-xl bg-bg border border-secondary/20 shadow-neu-inset focus:ring-1 focus:ring-accent font-medium text-lg placeholder:font-normal"
+                                className="h-14 rounded-xl bg-bg border border-secondary/20 shadow-neu-inset focus:ring-1 focus:ring-accent font-medium text-lg placeholder:font-normal pr-12"
                             />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-secondary hover:text-primary transition-colors flex items-center justify-center p-1"
+                            >
+                                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                            </button>
                         </div>
                     </div>
 
