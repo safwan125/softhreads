@@ -21,32 +21,32 @@ const config: Config = {
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
                 // User defined palette
-                bg: "#f2efe9",      // Warm light beige
-                surface: "#f2efe9", // Matching surface
+                bg: "#F9F8F6",      // Bone
+                surface: "#F9F8F6", // Bone
                 primary: {
-                    DEFAULT: "#1a1a1a", // Dark charcoal
-                    foreground: "#f2efe9",
+                    DEFAULT: "#4A4238", // Umber
+                    foreground: "#F9F8F6", // Bone
                 },
                 secondary: {
-                    DEFAULT: "#707a7e", // Muted grey-green
-                    foreground: "#f2efe9",
+                    DEFAULT: "#E5DED1", // Oatmeal
+                    foreground: "#4A4238", // Umber
                 },
                 accent: {
-                    DEFAULT: "#3e4437", // Dark olive green
-                    foreground: "#ffffff",
+                    DEFAULT: "#8B9481", // Sage
+                    foreground: "#F9F8F6", // Bone
                 },
                 // Shadcn overrides/maps
                 card: {
-                    DEFAULT: "#f2efe9",
-                    foreground: "#1a1a1a",
+                    DEFAULT: "#F9F8F6", // Bone
+                    foreground: "#4A4238", // Umber
                 },
                 popover: {
-                    DEFAULT: "#f2efe9",
-                    foreground: "#1a1a1a",
+                    DEFAULT: "#F9F8F6", // Bone
+                    foreground: "#4A4238", // Umber
                 },
                 muted: {
-                    DEFAULT: "#e6e2da", // Slightly darker than bg
-                    foreground: "#707a7e",
+                    DEFAULT: "#E5DED1", // Oatmeal
+                    foreground: "#8B9481", // Sage
                 },
                 destructive: {
                     DEFAULT: "#EF4444",
@@ -54,11 +54,11 @@ const config: Config = {
                 },
             },
             boxShadow: {
-                // Warm shadows for #f2efe9 - REMOVED WHITE HIGHLIGHT as per user request
+                // Warm shadows for #F9F8F6 - REMOVED WHITE HIGHLIGHT as per user request
                 // Using a transparent second shadow or just a single dark shadow to avoid "glow"
-                neu: "9px 9px 18px #d1cfc9, -9px -9px 18px transparent",
-                "neu-sm": "5px 5px 10px #d1cfc9, -5px -5px 10px transparent",
-                "neu-inset": "inset 5px 5px 10px #d1cfc9, inset -5px -5px 10px transparent",
+                neu: "9px 9px 18px #d6d5d3, -9px -9px 18px transparent",
+                "neu-sm": "5px 5px 10px #d6d5d3, -5px -5px 10px transparent",
+                "neu-inset": "inset 5px 5px 10px #d6d5d3, inset -5px -5px 10px transparent",
             },
             borderRadius: {
                 lg: "var(--radius)",
