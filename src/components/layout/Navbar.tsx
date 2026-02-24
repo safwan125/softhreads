@@ -63,19 +63,19 @@ export default function Navbar() {
                         {/* Neumorphic Dropdown */}
                         <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-96 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-bg rounded-xl shadow-md p-6 grid grid-cols-2 gap-6 z-50 border border-white/50">
                             <div>
-                                <Link href="/shop?q=men" className="block font-bold text-primary mb-3 uppercase tracking-wider text-xs hover:text-accent transition-colors">Men</Link>
+                                <Link href="/shop?q=men" className="block font-bold text-primary mb-3 uppercase tracking-wider text-xs hover:text-accent transition-colors">MEN</Link>
                                 <div className="flex flex-col gap-2">
-                                    <Link href="/shop?q=men t-shirt" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">T-Shirts</Link>
-                                    <Link href="/shop?q=men shirt" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">Shirts</Link>
-                                    <Link href="/shop?q=men sweatshirt" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">Sweatshirts</Link>
+                                    <Link href="/shop?q=men t-shirt" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">T-SHIRTS</Link>
+                                    <Link href="/shop?q=men shirt" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">SHIRTS</Link>
+                                    <Link href="/shop?q=men sweatshirt" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">SWEATSHIRTS</Link>
                                 </div>
                             </div>
                             <div>
-                                <Link href="/shop?q=women" className="block font-bold text-primary mb-3 uppercase tracking-wider text-xs hover:text-accent transition-colors">Women</Link>
+                                <Link href="/shop?q=women" className="block font-bold text-primary mb-3 uppercase tracking-wider text-xs hover:text-accent transition-colors">WOMEN</Link>
                                 <div className="flex flex-col gap-2">
-                                    <Link href="/shop?q=women kurti set" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">Kurti Sets</Link>
-                                    <Link href="/shop?q=saree" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">Sarees</Link>
-                                    <Link href="/shop?q=women co-ords" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">Co-ords</Link>
+                                    <Link href="/shop?q=women kurti set" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">KURTI SETS</Link>
+                                    <Link href="/shop?q=saree" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">SAREES</Link>
+                                    <Link href="/shop?q=women co-ords" className="hover:text-primary/70 transition-colors text-xs font-medium text-secondary">CO-ORDS</Link>
                                 </div>
                             </div>
                         </div>
@@ -188,21 +188,21 @@ export default function Navbar() {
 
                                         {/* Men Mobile */}
                                         <div className="flex flex-col gap-2 pl-2">
-                                            <Link href="/shop?q=men" className="text-base font-medium text-primary hover:text-accent transition-colors">Men</Link>
+                                            <Link href="/shop?q=men" className="text-base font-medium text-primary hover:text-accent transition-colors">MEN</Link>
                                             <div className="flex flex-col gap-2 pl-3 text-sm text-secondary">
-                                                <Link href="/shop?q=men t-shirt" className="hover:text-primary transition-colors">- T-Shirts</Link>
-                                                <Link href="/shop?q=men shirt" className="hover:text-primary transition-colors">- Shirts</Link>
-                                                <Link href="/shop?q=men sweatshirt" className="hover:text-primary transition-colors">- Sweatshirts</Link>
+                                                <Link href="/shop?q=men t-shirt" className="hover:text-primary transition-colors">- T-SHIRTS</Link>
+                                                <Link href="/shop?q=men shirt" className="hover:text-primary transition-colors">- SHIRTS</Link>
+                                                <Link href="/shop?q=men sweatshirt" className="hover:text-primary transition-colors">- SWEATSHIRTS</Link>
                                             </div>
                                         </div>
 
                                         {/* Women Mobile */}
                                         <div className="flex flex-col gap-2 pl-2">
-                                            <Link href="/shop?q=women" className="text-base font-medium text-primary hover:text-accent transition-colors">Women</Link>
+                                            <Link href="/shop?q=women" className="text-base font-medium text-primary hover:text-accent transition-colors">WOMEN</Link>
                                             <div className="flex flex-col gap-2 pl-3 text-sm text-secondary">
-                                                <Link href="/shop?q=women kurti set" className="hover:text-primary transition-colors">- Kurti Sets</Link>
-                                                <Link href="/shop?q=saree" className="hover:text-primary transition-colors">- Sarees</Link>
-                                                <Link href="/shop?q=women co-ords" className="hover:text-primary transition-colors">- Co-ords</Link>
+                                                <Link href="/shop?q=women kurti set" className="hover:text-primary transition-colors">- KURTI SETS</Link>
+                                                <Link href="/shop?q=saree" className="hover:text-primary transition-colors">- SAREES</Link>
+                                                <Link href="/shop?q=women co-ords" className="hover:text-primary transition-colors">- CO-ORDS</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -210,11 +210,11 @@ export default function Navbar() {
 
                                     {isAuthenticated ? (
                                         <Link href="/account" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">
-                                            <User className="w-5 h-5" /> Account
+                                            <User className="w-5 h-5" /> ACCOUNT
                                         </Link>
                                     ) : (
                                         <Link href="/login" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">
-                                            <User className="w-5 h-5" /> Login / Sign Up
+                                            <User className="w-5 h-5" /> LOGIN / SIGN UP
                                         </Link>
                                     )}
                                 </div>
