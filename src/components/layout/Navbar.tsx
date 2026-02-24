@@ -54,11 +54,11 @@ export default function Navbar() {
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center space-x-8">
                     <Link href="/" className="text-secondary hover:text-primary transition-colors font-medium uppercase tracking-wider text-sm">
-                        Home
+                        HOME
                     </Link>
                     <div className="group relative">
                         <Link href="/shop" className="text-secondary hover:text-primary transition-colors font-medium flex items-center gap-1 uppercase tracking-wider text-sm">
-                            Shop
+                            SHOP
                         </Link>
                         {/* Neumorphic Dropdown */}
                         <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-96 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 bg-bg rounded-xl shadow-md p-6 grid grid-cols-2 gap-6 z-50 border border-white/50">
@@ -81,7 +81,7 @@ export default function Navbar() {
                         </div>
                     </div>
                     <Link href="/about" className="text-secondary hover:text-primary transition-colors font-medium uppercase tracking-wider text-sm">
-                        About Us
+                        ABOUT US
                     </Link>
                 </div>
 
@@ -127,6 +127,23 @@ export default function Navbar() {
                         )}
                     </Button>
 
+                    {/* Mobile Account / Login (Beside Menu) */}
+                    <div className="md:hidden">
+                        {isAuthenticated ? (
+                            <Link href="/account">
+                                <Button variant="ghost" size="icon" className="rounded-full w-10 h-10 shadow-sm active:shadow-inner hover:bg-transparent transition-all group">
+                                    <User className="w-5 h-5 text-primary group-active:scale-95 transition-transform" />
+                                </Button>
+                            </Link>
+                        ) : (
+                            <Link href="/login">
+                                <Button variant="ghost" size="icon" className="rounded-full w-10 h-10 shadow-sm active:shadow-inner hover:bg-transparent transition-all group">
+                                    <User className="w-5 h-5 text-primary group-active:scale-95 transition-transform" />
+                                </Button>
+                            </Link>
+                        )}
+                    </div>
+
 
                     {/* Account / Login */}
                     {isAuthenticated ? (
@@ -163,9 +180,9 @@ export default function Navbar() {
                                     setIsMobileMenuOpen(false);
                                 }
                             }}>
-                                <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">Home</Link>
+                                <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">HOME</Link>
                                 <div className="flex flex-col gap-4 pl-4 border-l-2 border-primary/10">
-                                    <span className="text-sm font-semibold text-secondary uppercase tracking-widest">Shop</span>
+                                    <span className="text-sm font-semibold text-secondary uppercase tracking-widest">SHOP</span>
 
                                     {/* Men Mobile */}
                                     <div className="flex flex-col gap-2 pl-2">
@@ -187,7 +204,7 @@ export default function Navbar() {
                                         </div>
                                     </div>
                                 </div>
-                                <Link href="/about" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">About Us</Link>
+                                <Link href="/about" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">ABOUT US</Link>
 
                                 {isAuthenticated ? (
                                     <Link href="/account" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">

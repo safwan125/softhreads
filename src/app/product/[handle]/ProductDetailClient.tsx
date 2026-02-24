@@ -81,6 +81,24 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
         openCart();
     };
 
+    const handleBuyNow = () => {
+        if (!selectedVariant) return;
+
+        addToCart({
+            id: product.id,
+            variantId: selectedVariant.id,
+            title: product.title,
+            handle: product.handle,
+            image: product.image,
+            price: selectedVariant.price,
+            quantity: 1,
+            size: selectedOptions["Size"] || "",
+            color: selectedOptions["Color"] || ""
+        });
+        // For 'Buy Now', immediately open cart and user can proceed to checkout
+        openCart();
+    };
+
     // Helper to check if a specific option value is available given OTHER currently selected options
     // e.g. If Color is Black, is Size S available?
     const isOptionValueAvailable = (optionName: string, value: string) => {
@@ -243,6 +261,14 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                             className="w-full h-14 rounded-xl text-lg font-semibold shadow-neu-md hover:shadow-neu-lg hover:-translate-y-0.5 transition-all bg-primary text-primary-foreground active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                         >
                             <ShoppingCart className="mr-2 w-5 h-5" /> {buttonText}
+                        </Button>
+                        <Button
+                            onClick={handleBuyNow}
+                            disabled={isButtonDisabled}
+                            variant="outline"
+                            className="w-full h-14 rounded-xl text-lg font-semibold shadow-neu-sm hover:shadow-neu-md hover:-translate-y-0.5 transition-all border-2 border-primary text-primary hover:bg-primary sm:hover:text-primary-foreground active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                        >
+                            Buy Now
                         </Button>
                     </div>
 

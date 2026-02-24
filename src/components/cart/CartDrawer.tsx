@@ -153,6 +153,12 @@ export default function CartDrawer() {
                                     "Checkout Now"
                                 )}
                             </Button>
+                            <Button
+                                className="w-full h-12 rounded-xl text-lg shadow-neu-sm active:shadow-neu-inset bg-transparent border-2 border-primary text-primary hover:bg-primary sm:hover:text-primary-foreground transition-all flex items-center justify-center"
+                                onClick={closeCart}
+                            >
+                                Continue Shopping
+                            </Button>
                             <p className="text-xs text-center text-secondary">
                                 Shipping & taxes calculated at checkout
                             </p>
