@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import SizeChart from "@/components/product/SizeChart";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { ShoppingCart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/lib/cart-context";
@@ -153,7 +154,29 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
 
                     <div className="h-px bg-secondary w-full" />
 
-                    <div className="prose prose-neutral dark:prose-invert max-w-none text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: product.description }} />
+                    <Accordion type="multiple" defaultValue={["description"]} className="w-full mt-2">
+                        <AccordionItem value="description" className="border-y border-secondary/20">
+                            <AccordionTrigger className="text-sm font-semibold hover:no-underline hover:text-primary/80 uppercase tracking-widest py-4">
+                                Description
+                            </AccordionTrigger>
+                            <AccordionContent className="text-muted-foreground leading-relaxed pt-2 pb-4">
+                                <div className="prose prose-sm prose-neutral dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: product.description }} />
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="details" className="border-b border-secondary/20">
+                            <AccordionTrigger className="text-sm font-semibold hover:no-underline hover:text-primary/80 uppercase tracking-widest py-4">
+                                Details & Wash Care
+                            </AccordionTrigger>
+                            <AccordionContent className="text-muted-foreground leading-relaxed pt-2 pb-4 space-y-2">
+                                <ul className="list-disc pl-5 space-y-1 text-sm">
+                                    <li>Premium fabric construction</li>
+                                    <li>Hand wash or dry clean recommended</li>
+                                    <li>Do not bleach</li>
+                                    <li>Iron on low heat</li>
+                                </ul>
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
 
                     {/* Dynamic Options */}
                     {product.options && product.options.map((option: any) => (

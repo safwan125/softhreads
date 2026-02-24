@@ -12,6 +12,7 @@ import { useAuth } from "@/lib/auth-context";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { openCart, cartCount } = useCart();
     const { isAuthenticated } = useAuth();
 
@@ -143,7 +144,7 @@ export default function Navbar() {
                     )}
 
                     {/* Mobile Menu */}
-                    <Sheet>
+                    <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                         <SheetTrigger asChild>
                             <Button variant="ghost" size="icon" className="md:hidden rounded-full w-10 h-10 shadow-sm active:shadow-inner bg-bg text-primary hover:bg-transparent">
                                 <Menu className="w-5 h-5" />
@@ -156,8 +157,12 @@ export default function Navbar() {
                                 <SheetDescription>Navigation links and user account access</SheetDescription>
                             </div>
 
-                            {/* Removed shadow-neu, used shadow-xl */}
-                            <div className="flex flex-col gap-6 mt-10">
+                            <div className="flex flex-col gap-6 mt-10" onClick={(e) => {
+                                // Close menu if clicking on a link
+                                if ((e.target as HTMLElement).closest('a')) {
+                                    setIsMobileMenuOpen(false);
+                                }
+                            }}>
                                 <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">Home</Link>
                                 <div className="flex flex-col gap-4 pl-4 border-l-2 border-primary/10">
                                     <span className="text-sm font-semibold text-secondary uppercase tracking-widest">Shop</span>

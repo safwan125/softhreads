@@ -24,7 +24,7 @@ const slides = [
         id: 2,
         title: "Men's Urban Essentials",
         subtitle: "Redefine your street style with our new arrivals.",
-        image: "https://images.unsplash.com/photo-1488161628813-99425205ad54?w=1600&auto=format&fit=crop&q=80",
+        image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1600&auto=format&fit=crop&q=80",
         cta: "Shop Men",
         link: "/shop/men"
     },
