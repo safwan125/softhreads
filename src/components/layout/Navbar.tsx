@@ -86,9 +86,9 @@ export default function Navbar() {
                 </div>
 
                 {/* Icons */}
-                <div className="flex items-center space-x-4 md:space-x-6">
+                <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
                     {/* Search - Toggle */}
-                    <div className="relative flex items-center">
+                    <div className="relative hidden md:flex items-center">
                         {isSearchOpen && (
                             <div className="absolute right-12 top-1/2 -translate-y-1/2 mr-2 w-48 animate-in fade-in slide-in-from-right-5">
                                 <input
@@ -106,7 +106,7 @@ export default function Navbar() {
                             variant="ghost"
                             size="icon"
                             onClick={() => setIsSearchOpen(!isSearchOpen)}
-                            className="hidden md:flex group rounded-full w-10 h-10 shadow-sm active:shadow-inner hover:bg-transparent transition-all"
+                            className="group rounded-full w-10 h-10 shadow-sm active:shadow-inner hover:bg-transparent transition-all"
                         >
                             <Search className="w-5 h-5 text-primary group-active:scale-95 transition-transform" />
                         </Button>
@@ -128,7 +128,7 @@ export default function Navbar() {
                     </Button>
 
                     {/* Mobile Account / Login (Beside Menu) */}
-                    <div className="md:hidden">
+                    <div className="md:hidden flex items-center">
                         {isAuthenticated ? (
                             <Link href="/account">
                                 <Button variant="ghost" size="icon" className="rounded-full w-10 h-10 shadow-sm active:shadow-inner hover:bg-transparent transition-all group">
@@ -144,81 +144,84 @@ export default function Navbar() {
                         )}
                     </div>
 
-
-                    {/* Account / Login */}
-                    {isAuthenticated ? (
-                        <Link href="/account">
-                            <Button variant="ghost" size="icon" className="hidden md:flex rounded-full w-10 h-10 shadow-sm active:shadow-inner hover:bg-transparent transition-all group">
-                                <User className="w-5 h-5 text-primary group-active:scale-95 transition-transform" />
-                            </Button>
-                        </Link>
-                    ) : (
-                        <Link href="/login">
-                            <Button variant="ghost" className="hidden md:flex rounded-full px-6 shadow-sm active:shadow-inner hover:bg-transparent transition-all text-primary font-medium">
-                                Login
-                            </Button>
-                        </Link>
-                    )}
+                    {/* Desktop Account / Login */}
+                    <div className="hidden md:flex items-center">
+                        {isAuthenticated ? (
+                            <Link href="/account">
+                                <Button variant="ghost" size="icon" className="rounded-full w-10 h-10 shadow-sm active:shadow-inner hover:bg-transparent transition-all group">
+                                    <User className="w-5 h-5 text-primary group-active:scale-95 transition-transform" />
+                                </Button>
+                            </Link>
+                        ) : (
+                            <Link href="/login">
+                                <Button variant="ghost" className="rounded-full px-6 shadow-sm active:shadow-inner hover:bg-transparent transition-all text-primary font-medium">
+                                    Login
+                                </Button>
+                            </Link>
+                        )}
+                    </div>
 
                     {/* Mobile Menu */}
-                    <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-                        <SheetTrigger asChild>
-                            <Button variant="ghost" size="icon" className="md:hidden rounded-full w-10 h-10 shadow-sm active:shadow-inner bg-bg text-primary hover:bg-transparent">
-                                <Menu className="w-5 h-5" />
-                            </Button>
-                        </SheetTrigger>
-                        <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-bg border-none shadow-xl overflow-y-auto">
-                            <div className="sr-only">
-                                {/* Accessibility: required primitives */}
-                                <SheetTitle>Mobile Menu</SheetTitle>
-                                <SheetDescription>Navigation links and user account access</SheetDescription>
-                            </div>
-
-                            <div className="flex flex-col gap-6 mt-10" onClick={(e) => {
-                                // Close menu if clicking on a link
-                                if ((e.target as HTMLElement).closest('a')) {
-                                    setIsMobileMenuOpen(false);
-                                }
-                            }}>
-                                <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">HOME</Link>
-                                <div className="flex flex-col gap-4 pl-4 border-l-2 border-primary/10">
-                                    <span className="text-sm font-semibold text-secondary uppercase tracking-widest">SHOP</span>
-
-                                    {/* Men Mobile */}
-                                    <div className="flex flex-col gap-2 pl-2">
-                                        <Link href="/shop?q=men" className="text-base font-medium text-primary hover:text-accent transition-colors">Men</Link>
-                                        <div className="flex flex-col gap-2 pl-3 text-sm text-secondary">
-                                            <Link href="/shop?q=men t-shirt" className="hover:text-primary transition-colors">- T-Shirts</Link>
-                                            <Link href="/shop?q=men shirt" className="hover:text-primary transition-colors">- Shirts</Link>
-                                            <Link href="/shop?q=men sweatshirt" className="hover:text-primary transition-colors">- Sweatshirts</Link>
-                                        </div>
-                                    </div>
-
-                                    {/* Women Mobile */}
-                                    <div className="flex flex-col gap-2 pl-2">
-                                        <Link href="/shop?q=women" className="text-base font-medium text-primary hover:text-accent transition-colors">Women</Link>
-                                        <div className="flex flex-col gap-2 pl-3 text-sm text-secondary">
-                                            <Link href="/shop?q=women kurti set" className="hover:text-primary transition-colors">- Kurti Sets</Link>
-                                            <Link href="/shop?q=saree" className="hover:text-primary transition-colors">- Sarees</Link>
-                                            <Link href="/shop?q=women co-ords" className="hover:text-primary transition-colors">- Co-ords</Link>
-                                        </div>
-                                    </div>
+                    <div className="md:hidden flex items-center">
+                        <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+                            <SheetTrigger asChild>
+                                <Button variant="ghost" size="icon" className="rounded-full w-10 h-10 shadow-sm active:shadow-inner bg-bg text-primary hover:bg-transparent group">
+                                    <Menu className="w-5 h-5 group-active:scale-95 transition-transform" />
+                                </Button>
+                            </SheetTrigger>
+                            <SheetContent side="left" className="w-[300px] sm:w-[400px] bg-bg border-none shadow-xl overflow-y-auto">
+                                <div className="sr-only">
+                                    {/* Accessibility: required primitives */}
+                                    <SheetTitle>Mobile Menu</SheetTitle>
+                                    <SheetDescription>Navigation links and user account access</SheetDescription>
                                 </div>
-                                <Link href="/about" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">ABOUT US</Link>
 
-                                {isAuthenticated ? (
-                                    <Link href="/account" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">
-                                        <User className="w-5 h-5" /> Account
-                                    </Link>
-                                ) : (
-                                    <Link href="/login" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">
-                                        <User className="w-5 h-5" /> Login / Sign Up
-                                    </Link>
-                                )}
-                            </div>
-                        </SheetContent>
-                    </Sheet>
+                                <div className="flex flex-col gap-6 mt-10" onClick={(e) => {
+                                    // Close menu if clicking on a link
+                                    if ((e.target as HTMLElement).closest('a')) {
+                                        setIsMobileMenuOpen(false);
+                                    }
+                                }}>
+                                    <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">HOME</Link>
+                                    <div className="flex flex-col gap-4 pl-4 border-l-2 border-primary/10">
+                                        <span className="text-sm font-semibold text-secondary uppercase tracking-widest">SHOP</span>
 
+                                        {/* Men Mobile */}
+                                        <div className="flex flex-col gap-2 pl-2">
+                                            <Link href="/shop?q=men" className="text-base font-medium text-primary hover:text-accent transition-colors">Men</Link>
+                                            <div className="flex flex-col gap-2 pl-3 text-sm text-secondary">
+                                                <Link href="/shop?q=men t-shirt" className="hover:text-primary transition-colors">- T-Shirts</Link>
+                                                <Link href="/shop?q=men shirt" className="hover:text-primary transition-colors">- Shirts</Link>
+                                                <Link href="/shop?q=men sweatshirt" className="hover:text-primary transition-colors">- Sweatshirts</Link>
+                                            </div>
+                                        </div>
+
+                                        {/* Women Mobile */}
+                                        <div className="flex flex-col gap-2 pl-2">
+                                            <Link href="/shop?q=women" className="text-base font-medium text-primary hover:text-accent transition-colors">Women</Link>
+                                            <div className="flex flex-col gap-2 pl-3 text-sm text-secondary">
+                                                <Link href="/shop?q=women kurti set" className="hover:text-primary transition-colors">- Kurti Sets</Link>
+                                                <Link href="/shop?q=saree" className="hover:text-primary transition-colors">- Sarees</Link>
+                                                <Link href="/shop?q=women co-ords" className="hover:text-primary transition-colors">- Co-ords</Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <Link href="/about" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">ABOUT US</Link>
+
+                                    {isAuthenticated ? (
+                                        <Link href="/account" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">
+                                            <User className="w-5 h-5" /> Account
+                                        </Link>
+                                    ) : (
+                                        <Link href="/login" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">
+                                            <User className="w-5 h-5" /> Login / Sign Up
+                                        </Link>
+                                    )}
+                                </div>
+                            </SheetContent>
+                        </Sheet>
+
+                    </div>
                 </div>
             </div>
         </nav>
