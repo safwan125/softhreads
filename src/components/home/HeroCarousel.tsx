@@ -14,27 +14,27 @@ import { Button } from "@/components/ui/button";
 const slides = [
     {
         id: 1,
-        title: "Summer Collection 2026",
-        subtitle: "Experience comfort like never before.",
-        image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1600&auto=format&fit=crop&q=80",
-        cta: "Shop Women",
-        link: "/shop/women"
+        title: "Maxi Gown",
+        subtitle: "Premium Navy Embroidered Modest Maxi Gown. Delicate floral embroidery, gathered yoke design, full sleeves.",
+        image: "https://cdn.shopify.com/s/files/1/0811/2373/7848/files/IMG_1249_09dfd08a-ccea-4e55-9c94-6d68f9846de4.png?v=1771424224",
+        cta: "Shop Now",
+        link: "/product/maxi-gown"
     },
     {
         id: 2,
-        title: "Men's Urban Essentials",
-        subtitle: "Redefine your street style with our new arrivals.",
-        image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1600&auto=format&fit=crop&q=80",
-        cta: "Shop Men",
-        link: "/shop/men"
+        title: "Banarasi Saree",
+        subtitle: "Exquisite Banarasi Saree perfect for festive occasions and celebrations.",
+        image: "https://cdn.shopify.com/s/files/1/0811/2373/7848/files/dd5a141c-f7ee-416a-b1cb-31d94bb49709.jpg?v=1771448028",
+        cta: "Shop Now",
+        link: "/product/urban-denim-jacket"
     },
     {
         id: 3,
-        title: "Kids Drops",
-        subtitle: "Exclusive designs. Premium fabrics.",
-        image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1600&auto=format&fit=crop&q=80",
-        cta: "Shop All",
-        link: "/shop"
+        title: "Luxury Cotton Kurta Set",
+        subtitle: "Premium pink embroidered kurta set with matching dupatta. Elegant floral detailing, breathable fabric & perfect for festive and formal wear.",
+        image: "https://cdn.shopify.com/s/files/1/0811/2373/7848/files/IMG_1166.png?v=1771424456",
+        cta: "Shop Now",
+        link: "/product/summer-breeze-dress"
     }
 ];
 
