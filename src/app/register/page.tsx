@@ -68,7 +68,7 @@ export default function RegisterPage() {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
-                                className="h-14 rounded-xl bg-bg border border-secondary/20 shadow-neu-inset focus:ring-1 focus:ring-accent font-medium text-lg placeholder:font-normal"
+                                className="h-14 rounded-2xl bg-[#4A4036] text-white placeholder:text-white/80 border-none focus:ring-2 focus:ring-white/20 font-medium text-lg placeholder:font-normal"
                             />
                         </div>
                         <div>
@@ -78,7 +78,7 @@ export default function RegisterPage() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="h-14 rounded-xl bg-bg border border-secondary/20 shadow-neu-inset focus:ring-1 focus:ring-accent font-medium text-lg placeholder:font-normal"
+                                className="h-14 rounded-2xl bg-[#4A4036] text-white placeholder:text-white/80 border-none focus:ring-2 focus:ring-white/20 font-medium text-lg placeholder:font-normal"
                             />
                         </div>
                         <div className="relative">
@@ -88,7 +88,7 @@ export default function RegisterPage() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
-                                className="h-14 rounded-xl bg-bg border border-secondary/20 shadow-neu-inset focus:ring-1 focus:ring-accent font-medium text-lg placeholder:font-normal pr-12"
+                                className="h-14 rounded-2xl bg-[#4A4036] text-white placeholder:text-white/80 border-none focus:ring-2 focus:ring-white/20 font-medium text-lg placeholder:font-normal pr-12"
                             />
                             <button
                                 type="button"
