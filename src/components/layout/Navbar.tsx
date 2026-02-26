@@ -184,9 +184,9 @@ export default function Navbar() {
                                 }}>
                                     <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">HOME</Link>
 
-                                    <hr className="border-primary/10" />
+                                    <hr className="border-primary/20" />
 
-                                    <div className="flex flex-col gap-4 pl-4 border-l-2 border-primary/10">
+                                    <div className="flex flex-col gap-4 pl-2">
                                         <span className="text-sm font-semibold text-secondary uppercase tracking-widest">SHOP</span>
 
                                         {/* Men Mobile */}
@@ -199,6 +199,8 @@ export default function Navbar() {
                                             </div>
                                         </div>
 
+                                        <hr className="border-primary/10 ml-2" />
+
                                         {/* Women Mobile */}
                                         <div className="flex flex-col gap-2 pl-2">
                                             <Link href="/shop?q=women" className="text-base font-medium text-primary hover:text-accent transition-colors">WOMEN</Link>
@@ -210,11 +212,11 @@ export default function Navbar() {
                                         </div>
                                     </div>
 
-                                    <hr className="border-primary/10" />
+                                    <hr className="border-primary/20" />
 
                                     <Link href="/about" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">ABOUT US</Link>
 
-                                    <hr className="border-primary/10" />
+                                    <hr className="border-primary/20" />
 
                                     {isAuthenticated ? (
                                         <Link href="/account" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">
