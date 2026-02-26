@@ -183,6 +183,9 @@ export default function Navbar() {
                                     }
                                 }}>
                                     <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">HOME</Link>
+
+                                    <hr className="border-primary/10" />
+
                                     <div className="flex flex-col gap-4 pl-4 border-l-2 border-primary/10">
                                         <span className="text-sm font-semibold text-secondary uppercase tracking-widest">SHOP</span>
 
@@ -206,7 +209,12 @@ export default function Navbar() {
                                             </div>
                                         </div>
                                     </div>
+
+                                    <hr className="border-primary/10" />
+
                                     <Link href="/about" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">ABOUT US</Link>
+
+                                    <hr className="border-primary/10" />
 
                                     {isAuthenticated ? (
                                         <Link href="/account" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">
