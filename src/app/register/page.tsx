@@ -98,6 +98,11 @@ export default function RegisterPage() {
                                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                             </button>
                         </div>
+                        <div className="flex justify-end mt-1">
+                            <Link href="/forgot-password" className="text-sm font-medium text-accent hover:underline">
+                                Forgot your password?
+                            </Link>
+                        </div>
                     </div>
 
                     <Button
