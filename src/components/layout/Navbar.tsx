@@ -176,47 +176,59 @@ export default function Navbar() {
                                     <SheetDescription>Navigation links and user account access</SheetDescription>
                                 </div>
 
-                                <div className="flex flex-col gap-6 mt-10" onClick={(e) => {
+                                <div className="flex flex-col mt-8" onClick={(e) => {
                                     // Close menu if clicking on a link
                                     if ((e.target as HTMLElement).closest('a')) {
                                         setIsMobileMenuOpen(false);
                                     }
                                 }}>
-                                    <Link href="/" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">HOME</Link>
-                                    <div className="flex flex-col gap-4 pl-4 border-l-2 border-primary/10">
-                                        <span className="text-sm font-semibold text-secondary uppercase tracking-widest">SHOP</span>
+                                    <div className="flex flex-col divide-y divide-secondary/20 border-b border-t border-secondary/20">
+                                        <Link href="/" className="py-4 text-sm font-medium text-primary hover:text-accent transition-colors tracking-wide uppercase">
+                                            HOME
+                                        </Link>
+                                        <Link href="/shop" className="py-4 text-sm font-medium text-primary hover:text-accent transition-colors tracking-wide uppercase">
+                                            SHOP
+                                        </Link>
+                                        <Link href="/shop?target=new-arrivals" className="py-4 text-sm font-medium text-primary hover:text-accent transition-colors tracking-wide uppercase">
+                                            NEW ARRIVALS
+                                        </Link>
+                                        <Link href="/collections" className="py-4 text-sm font-medium text-primary hover:text-accent transition-colors tracking-wide uppercase">
+                                            COLLECTIONS
+                                        </Link>
+                                        <Link href="/contact" className="py-4 text-sm font-medium text-primary hover:text-accent transition-colors tracking-wide uppercase">
+                                            CONTACT
+                                        </Link>
+                                        {isAuthenticated ? (
+                                            <Link href="/account" className="py-4 text-sm font-medium text-primary hover:text-accent transition-colors tracking-wide uppercase">
+                                                ACCOUNT
+                                            </Link>
+                                        ) : (
+                                            <Link href="/login" className="py-4 text-sm font-medium text-primary hover:text-accent transition-colors tracking-wide uppercase">
+                                                LOG IN / REGISTER
+                                            </Link>
+                                        )}
+                                        <Link href="/threads-loop" className="py-4 text-sm font-medium text-[#8c9472] hover:text-[#7a8261] transition-colors tracking-wide uppercase">
+                                            THREADS LOOP
+                                        </Link>
+                                    </div>
 
-                                        {/* Men Mobile */}
-                                        <div className="flex flex-col gap-2 pl-2">
-                                            <Link href="/shop?q=men" className="text-base font-medium text-primary hover:text-accent transition-colors">MEN</Link>
-                                            <div className="flex flex-col gap-2 pl-3 text-sm text-secondary">
-                                                <Link href="/shop?q=men t-shirt" className="hover:text-primary transition-colors">- T-SHIRTS</Link>
-                                                <Link href="/shop?q=men shirt" className="hover:text-primary transition-colors">- SHIRTS</Link>
-                                                <Link href="/shop?q=men sweatshirt" className="hover:text-primary transition-colors">- SWEATSHIRTS</Link>
-                                            </div>
-                                        </div>
-
-                                        {/* Women Mobile */}
-                                        <div className="flex flex-col gap-2 pl-2">
-                                            <Link href="/shop?q=women" className="text-base font-medium text-primary hover:text-accent transition-colors">WOMEN</Link>
-                                            <div className="flex flex-col gap-2 pl-3 text-sm text-secondary">
-                                                <Link href="/shop?q=women kurti set" className="hover:text-primary transition-colors">- KURTI SETS</Link>
-                                                <Link href="/shop?q=saree" className="hover:text-primary transition-colors">- SAREES</Link>
-                                                <Link href="/shop?q=women co-ords" className="hover:text-primary transition-colors">- CO-ORDS</Link>
+                                    <div className="mt-8">
+                                        <span className="text-xs text-secondary mb-2 block uppercase tracking-wide">Currency</span>
+                                        <div className="relative">
+                                            <select className="w-full appearance-none bg-white border border-secondary/20 rounded-md py-3 px-4 text-sm text-primary focus:outline-none shadow-sm cursor-pointer">
+                                                <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                                                <option value="USD">🇺🇸 USD - US Dollar</option>
+                                                <option value="EUR">🇪🇺 EUR - Euro</option>
+                                                <option value="GBP">🇬🇧 GBP - British Pound</option>
+                                                <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                                                <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                                                <option value="AED">🇦🇪 AED - United Arab Emirates Dirham</option>
+                                            </select>
+                                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-primary">
+                                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                                             </div>
                                         </div>
                                     </div>
-                                    <Link href="/about" className="text-lg font-medium text-primary hover:text-accent transition-colors uppercase tracking-wider">ABOUT US</Link>
-
-                                    {isAuthenticated ? (
-                                        <Link href="/account" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">
-                                            <User className="w-5 h-5" /> ACCOUNT
-                                        </Link>
-                                    ) : (
-                                        <Link href="/login" className="text-lg font-medium text-primary hover:text-accent transition-colors flex items-center gap-2">
-                                            <User className="w-5 h-5" /> LOGIN / SIGN UP
-                                        </Link>
-                                    )}
                                 </div>
                             </SheetContent>
                         </Sheet>
