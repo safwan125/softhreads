@@ -1,3 +1,5 @@
+import { ShieldCheck, Cloud, RefreshCw, Clock } from "lucide-react";
+
 export default function AboutPage() {
     return (
         <>
@@ -32,6 +34,51 @@ export default function AboutPage() {
                         <p className="text-secondary leading-relaxed">
                             To become a leading fashion destination known for our commitment to customer satisfaction and sustainable fashion practices.
                         </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Promise Section */}
+            <section className="bg-[#1C1C1C] text-white py-20 rounded-3xl mx-4 mb-20 shadow-neu-inset">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <span className="text-xs md:text-sm font-semibold tracking-[0.2em] text-white/50 uppercase">Our Commitment</span>
+                        <h2 className="text-3xl md:text-5xl font-serif mt-4 font-medium">The SOFTHREADS Promise</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-8 max-w-4xl mx-auto">
+                        {/* Item 1 */}
+                        <div className="flex flex-col items-center text-center">
+                            <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6">
+                                <ShieldCheck className="w-7 h-7 text-white/80" strokeWidth={1.5} />
+                            </div>
+                            <h3 className="text-xl font-medium mb-3 font-serif tracking-wide">No Shrinkage</h3>
+                            <p className="text-white/50 tracking-wide text-sm">Pre-washed for perfect fit</p>
+                        </div>
+                        {/* Item 2 */}
+                        <div className="flex flex-col items-center text-center">
+                            <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6">
+                                <Cloud className="w-7 h-7 text-white/80" strokeWidth={1.5} />
+                            </div>
+                            <h3 className="text-xl font-medium mb-3 font-serif tracking-wide">Breathable Fit</h3>
+                            <p className="text-white/50 tracking-wide text-sm">Natural airflow technology</p>
+                        </div>
+                        {/* Item 3 */}
+                        <div className="flex flex-col items-center text-center">
+                            <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6">
+                                <RefreshCw className="w-7 h-7 text-white/80" strokeWidth={1.5} />
+                            </div>
+                            <h3 className="text-xl font-medium mb-3 font-serif tracking-wide">Anti-Pilling</h3>
+                            <p className="text-white/50 tracking-wide text-sm">Smooth texture that lasts</p>
+                        </div>
+                        {/* Item 4 */}
+                        <div className="flex flex-col items-center text-center">
+                            <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6">
+                                <Clock className="w-7 h-7 text-white/80" strokeWidth={1.5} />
+                            </div>
+                            <h3 className="text-xl font-medium mb-3 font-serif tracking-wide">Long-Wear Softness</h3>
+                            <p className="text-white/50 tracking-wide text-sm">Gets softer with every wash</p>
+                        </div>
                     </div>
                 </div>
             </section>
