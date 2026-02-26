@@ -21,6 +21,9 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
     // Initialize selections with default or first available options
     const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
 
+    // Manage main displayed image
+    const [mainImage, setMainImage] = useState<string>(product.image);
+
     // Set defaults on mount
     useEffect(() => {
         if (product.options && product.options.length > 0) {
@@ -136,7 +139,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                 <div className="space-y-4">
                     <div className="relative aspect-[3/4] w-full bg-secondary/20 rounded-2xl overflow-hidden shadow-neu-md">
                         <Image
-                            src={product.image}
+                            src={mainImage}
                             alt={product.title}
                             fill
                             className="object-cover"
@@ -144,11 +147,18 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
                         />
 
                     </div>
-                    {/* Thumbnails (Mock - in real app use product.images) */}
+                    {/* Thumbnails */}
                     {product.images && product.images.length > 1 && (
                         <div className="flex gap-4 overflow-x-auto pb-2">
                             {product.images.slice(0, 4).map((imgUrl: string, i: number) => (
-                                <div key={i} className="relative w-20 aspect-square rounded-lg overflow-hidden border border-transparent hover:border-primary cursor-pointer shadow-neu-sm">
+                                <div
+                                    key={i}
+                                    onClick={() => setMainImage(imgUrl)}
+                                    className={cn(
+                                        "relative w-20 aspect-square rounded-lg overflow-hidden border-2 cursor-pointer shadow-neu-sm transition-all",
+                                        mainImage === imgUrl ? "border-primary" : "border-transparent hover:border-primary/50"
+                                    )}
+                                >
                                     <Image src={imgUrl} alt="thumb" fill className="object-cover" />
                                 </div>
                             ))}

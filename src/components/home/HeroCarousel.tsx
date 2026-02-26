@@ -14,11 +14,11 @@ import { Button } from "@/components/ui/button";
 const slides = [
     {
         id: 1,
-        title: "Maxi Gown",
-        subtitle: "Premium Navy Embroidered Modest Maxi Gown. Delicate floral embroidery, gathered yoke design, full sleeves.",
-        image: "https://cdn.shopify.com/s/files/1/0811/2373/7848/files/IMG_1249_09dfd08a-ccea-4e55-9c94-6d68f9846de4.png?v=1771424224",
+        title: "Luxury Cotton Kurta Set",
+        subtitle: "Premium pink embroidered kurta set with matching dupatta. Elegant floral detailing, breathable fabric & perfect for festive and formal wear.",
+        image: "https://cdn.shopify.com/s/files/1/0811/2373/7848/files/IMG_1166.png?v=1771424456",
         cta: "Shop Now",
-        link: "/product/maxi-gown"
+        link: "/product/summer-breeze-dress"
     },
     {
         id: 2,
@@ -30,11 +30,11 @@ const slides = [
     },
     {
         id: 3,
-        title: "Luxury Cotton Kurta Set",
-        subtitle: "Premium pink embroidered kurta set with matching dupatta. Elegant floral detailing, breathable fabric & perfect for festive and formal wear.",
-        image: "https://cdn.shopify.com/s/files/1/0811/2373/7848/files/IMG_1166.png?v=1771424456",
+        title: "Maxi Gown",
+        subtitle: "Premium Navy Embroidered Modest Maxi Gown. Delicate floral embroidery, gathered yoke design, full sleeves.",
+        image: "https://cdn.shopify.com/s/files/1/0811/2373/7848/files/IMG_1249_09dfd08a-ccea-4e55-9c94-6d68f9846de4.png?v=1771424224",
         cta: "Shop Now",
-        link: "/product/summer-breeze-dress"
+        link: "/product/maxi-gown"
     }
 ];
 
