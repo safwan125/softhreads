@@ -46,21 +46,21 @@ export default function ContactPage() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-secondary">First Name</label>
-                                    <Input className="bg-bg border-none shadow-neu-inset" />
+                                    <Input className="bg-[#8A9A86] text-white placeholder:text-white/80 border-none shadow-neu-inset" />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-secondary">Last Name</label>
-                                    <Input className="bg-bg border-none shadow-neu-inset" />
+                                    <Input className="bg-[#8A9A86] text-white placeholder:text-white/80 border-none shadow-neu-inset" />
                                 </div>
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-secondary">Email</label>
-                                <Input type="email" className="bg-bg border-none shadow-neu-inset" />
+                                <Input type="email" className="bg-[#8A9A86] text-white placeholder:text-white/80 border-none shadow-neu-inset" />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-secondary">Message</label>
                                 <textarea
-                                    className="w-full min-h-[150px] p-3 rounded-xl bg-bg border-none shadow-neu-inset focus:outline-none focus:ring-1 focus:ring-accent resize-y"
+                                    className="w-full min-h-[150px] p-3 rounded-xl bg-[#8A9A86] text-white placeholder:text-white/80 border-none shadow-neu-inset focus:outline-none focus:ring-1 focus:ring-accent resize-y"
                                     placeholder="How can we help you?"
                                 ></textarea>
                             </div>
