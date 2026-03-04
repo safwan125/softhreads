@@ -39,7 +39,7 @@ export default function Navbar() {
     return (
         <nav
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-8 py-4",
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-8 py-4 md:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]",
                 isScrolled
                     ? "bg-bg shadow-sm py-3" // Changed from shadow-neu-sm to shadow-sm
                     : "bg-transparent"
@@ -48,7 +48,7 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2">
-                    <img src="/logo.png" alt="Softhreads Logo" className="h-10 w-auto mix-blend-multiply" />
+                    <img src="/new-logo.png" alt="Softhreads Logo" className="h-[28px] w-auto mix-blend-multiply" />
                 </Link>
 
                 {/* Desktop Links */}
