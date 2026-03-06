@@ -15,23 +15,23 @@ export default function ContactPage() {
                             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2 font-serif">
                                 <Mail className="w-5 h-5 text-accent" /> Email Us
                             </h3>
-                            <p className="text-secondary">support@softhreads.com</p>
-                            <p className="text-secondary">sales@softhreads.com</p>
+                            <p className="text-black">support@softhreads.com</p>
+                            <p className="text-black">sales@softhreads.com</p>
                         </div>
 
                         <div className="bg-bg p-8 rounded-2xl shadow-neu">
                             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2 font-serif">
                                 <Phone className="w-5 h-5 text-accent" /> Call Us
                             </h3>
-                            <p className="text-secondary">+91 9048360561</p>
-                            <p className="text-secondary text-sm">Mon-Fri: 9am - 6pm EST</p>
+                            <p className="text-black">+91 9048360561</p>
+                            <p className="text-black text-sm">Mon-Fri: 9am - 6pm EST</p>
                         </div>
 
                         <div className="bg-bg p-8 rounded-2xl shadow-neu">
                             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2 font-serif">
                                 <MapPin className="w-5 h-5 text-accent" /> Visit Us
                             </h3>
-                            <p className="text-secondary">
+                            <p className="text-black">
                                 050, Chamavila Kizhakkathil,<br />
                                 Kampalady, Poruvazhy P.O,<br />
                                 Kollam, Kerala 690520

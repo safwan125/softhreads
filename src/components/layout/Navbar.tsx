@@ -53,11 +53,11 @@ export default function Navbar() {
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center space-x-8">
-                    <Link href="/" className="text-secondary hover:text-primary transition-colors font-medium uppercase tracking-wider text-sm">
+                    <Link href="/" className="text-black hover:text-primary transition-colors font-medium uppercase tracking-wider text-sm">
                         HOME
                     </Link>
                     <div className="group relative">
-                        <Link href="/shop" className="text-secondary hover:text-primary transition-colors font-medium flex items-center gap-1 uppercase tracking-wider text-sm">
+                        <Link href="/shop" className="text-black hover:text-primary transition-colors font-medium flex items-center gap-1 uppercase tracking-wider text-sm">
                             SHOP
                         </Link>
                         {/* Neumorphic Dropdown */}
@@ -80,7 +80,7 @@ export default function Navbar() {
                             </div>
                         </div>
                     </div>
-                    <Link href="/about" className="text-secondary hover:text-primary transition-colors font-medium uppercase tracking-wider text-sm">
+                    <Link href="/about" className="text-black hover:text-primary transition-colors font-medium uppercase tracking-wider text-sm">
                         ABOUT US
                     </Link>
                 </div>

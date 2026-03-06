@@ -7,7 +7,7 @@ export default function AboutPage() {
             <section className="bg-secondary/10 py-16 md:py-24 rounded-3xl shadow-neu-inset mx-4 mb-16">
                 <div className="container mx-auto px-4 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6 font-serif">About Softhreads</h1>
-                    <p className="max-w-2xl mx-auto text-lg text-secondary leading-relaxed">
+                    <p className="max-w-2xl mx-auto text-lg text-black leading-relaxed">
                         Welcome to Softhreads, where style meets comfort. Born in the heart of Kerala, we are dedicated to providing premium quality clothing that doesn't compromise on elegance.
                     </p>
                 </div>
@@ -21,7 +21,7 @@ export default function AboutPage() {
                         <div className="flex items-center gap-4 mb-6">
                             <h2 className="text-2xl font-bold text-primary font-serif">Our Mission</h2>
                         </div>
-                        <p className="text-secondary leading-relaxed">
+                        <p className="text-black leading-relaxed">
                             To revolutionize the way you dress by offering a curated collection of apparel that blends modern aesthetics with traditional values of quality and durability.
                         </p>
                     </div>
@@ -31,7 +31,7 @@ export default function AboutPage() {
                         <div className="flex items-center gap-4 mb-6">
                             <h2 className="text-2xl font-bold text-primary font-serif">Our Vision</h2>
                         </div>
-                        <p className="text-secondary leading-relaxed">
+                        <p className="text-black leading-relaxed">
                             To become a leading fashion destination known for our commitment to customer satisfaction and sustainable fashion practices.
                         </p>
                     </div>
@@ -39,7 +39,7 @@ export default function AboutPage() {
             </section>
 
             {/* Promise Section */}
-            <section className="bg-[#1C1C1C] text-white py-20 rounded-3xl mx-4 mb-20 shadow-neu-inset">
+            <section className="bg-[#78866B] text-white py-20 rounded-3xl mx-4 mb-20 shadow-neu-inset">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <span className="text-xs md:text-sm font-semibold tracking-[0.2em] text-white/50 uppercase">Our Commitment</span>
